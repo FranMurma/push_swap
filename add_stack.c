@@ -6,9 +6,11 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 16:30:53 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/11/21 17:56:53 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/11/22 15:52:11 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+# include "push_swap.h"
 
 t_stack	*ft_setup_stack_a(int argc, char **argv)
 {
@@ -25,11 +27,13 @@ t_stack	*ft_setup_stack_a(int argc, char **argv)
 	stack_a->next = NULL;
 	while (start < argc)
 	{
-		nodo = (t_stack *)malloc(sizeof(t_stack));
-		if (!nodo)
+		node = (t_stack *)malloc(sizeof(t_stack));
+		if (!node)
 			return (NULL);
 		node->data = ft_l_atoi(argv[start]);
 		node->next = node;
 		start++;
 	}
+	node->next = NULL;
+	return (stack_a);
 }

@@ -6,12 +6,11 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 18:39:32 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/11/20 12:20:37 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/11/22 16:01:12 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
+#include "push_swap.h"
 
 /* CHECK de errores. El primero, FT_ERROR, comprueba que hay un segundo argc */
 int	ft_error(int argc, char **argv)
@@ -110,4 +109,11 @@ int	main(int argc, char **argv)
 		return (-1);
 	else
 		write (1, "TODO ESTA BIEN!\n", 16);
+	ft_setup_stack_a(argc, argv);
+	while (stack_a.next)
+	{
+		printf("Los argumentos son: %d", stack_a.data);
+		stack_a.next;
+	}
+	return (0);
 }
