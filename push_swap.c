@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
+/*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 18:39:32 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/11/22 16:01:12 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/11/28 16:02:14 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 /* CHECK de errores. El primero, FT_ERROR, comprueba que hay un segundo argc */
-int	ft_error(int argc, char **argv)
+int	ft_error(int argc)
 {
 	if (argc < 2)
 	{
@@ -25,7 +26,7 @@ int	ft_error(int argc, char **argv)
 
 /* Segunda comprobacion de errores. FT_ERROR_NB comprueba que los argumentos
  * introducidos son numeros o un - (solo en la primera posicion) */
-int	ft_error_nb(int argc, char **argv)
+int	ft_error_nb(char **argv)
 {
 	int	c1;
 	int	c2;
@@ -37,8 +38,8 @@ int	ft_error_nb(int argc, char **argv)
 		c2 = 0;
 		while (argv[c1][c2])
 		{
-			if ((c2 == 0 && argv[c1][c2] == '-')
-					&& (argv[c1][c2 + 1] >= '0' && argv[c1][c2 + 1] <= '9')
+			if ((argv[c1][0] == '-'
+					&& (argv[c1][c2 + 1] >= '0' && argv[c1][c2 + 1] <= '9'))
 					|| (argv[c1][c2] >= '0' && argv[c1][c2] <= '9'))
 				c2++;
 			else if (c2 != 0 && argv[c1][c2] >= '0' && argv[c1][c2] <= '9')
@@ -104,16 +105,18 @@ int	ft_max_min(char **argv)
 
 int	main(int argc, char **argv)
 {
-	if (ft_error(argc, argv) == -1 || ft_error_nb(argc, argv) == -1
+	t_list	list;
+	if (ft_error(argc) == -1 || ft_error_nb(argv) == -1
 		|| ft_nb_repeated(argv) == -1 || ft_max_min(argv) == -1)
 		return (-1);
-	else
-		write (1, "TODO ESTA BIEN!\n", 16);
-	ft_setup_stack_a(argc, argv);
-	while (stack_a.next)
-	{
-		printf("Los argumentos son: %d", stack_a.data);
-		stack_a.next;
-	}
+	printf("TODO ESTA BIEN!\n");
+	ft_setup_stack_a(&list);
+	// while (list.stack_a->next)
+	// {
+	// 	printf("Hola");
+	// 	printf("Los argumentos son: %d\n", list.stack_a->data);
+	// 	printf("Hola2");
+	// 	list.stack_a = list.stack_a->next;
+	// }
 	return (0);
 }

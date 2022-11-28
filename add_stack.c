@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_stack.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
+/*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 16:30:53 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/11/22 15:52:11 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/11/26 19:23:46 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,19 @@ t_stack	*ft_setup_stack_a(int argc, char **argv)
 {
 	int	start;
 	start = 2;
-	t_stack	*stack_a;
+	t_list	*stack_a;
 	t_stack	*temp;
 	t_stack	*node;
+	t_list	*list;
 
-	stack_a = (t_stack *)malloc(sizeof(t_stack));
+	printf("Hola que tal\n");
+	stack_a = (t_list *)malloc(sizeof(t_list));
 	if (!stack_a)
 		return (NULL);
-	stack_a->data = 0;
-	stack_a->next = NULL;
+	printf("Hola que tal\n");
+	list->stack_a->data = 0;
+	list->stack_a->next = NULL;
+	printf("Hola que tal\n");
 	while (start < argc)
 	{
 		node = (t_stack *)malloc(sizeof(t_stack));
@@ -35,5 +39,5 @@ t_stack	*ft_setup_stack_a(int argc, char **argv)
 		start++;
 	}
 	node->next = NULL;
-	return (stack_a);
+	return (0);
 }

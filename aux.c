@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 11:54:53 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/11/20 12:15:22 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/11/28 15:52:58 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ long int	ft_l_atoi(char *str)
 	if (str[count] != '\0')
 	{
 		count = ft_start(str);
-		if (str[count] == '+' || str[1] == '-')
+		if (str[count] == '+' || str[count] == '-')
 		{
 			if (str[count] == '-')
 				neg = neg * -1;
@@ -72,4 +72,32 @@ int	ft_strcmp(char *s1, char *s2)
 			return (s1[count] - s2[count]);
 	}
 	return (0);
+}
+
+int	ft_atoi(char *str)
+{
+	int	cont1;
+	int	almacen;
+	int	neg;
+
+	cont1 = 0;
+	almacen = 0;
+	neg = 1;
+	if (str[cont1] != '\0')
+	{
+		cont1 = ft_start(str);
+		if (str[cont1] == '+' || str[cont1] == '-')
+		{
+			if (str[cont1] == '-')
+				neg = neg * -1;
+			cont1++;
+		}
+		while (str[cont1] >= '0' && str[cont1] <= '9')
+		{
+			almacen = (almacen * 10) + (str[cont1] - '0');
+			cont1++;
+		}
+		almacen = almacen * neg;
+	}
+	return (almacen);
 }
