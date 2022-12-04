@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 10:45:08 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/11/28 16:02:08 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/04 19:04:42 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,34 +19,36 @@
 # include <stdio.h>
 # include <stdlib.h>
 
-typedef struct s_items
+// definimos las estructuras
+typedef struct s_element
 {
-	int				data;
-	struct s_items	*next;
-	struct s_items	*prev;
-	int				index;
-}	t_items;
+	int					value;
+	struct s_element	*next;
+	int					index;
+}	t_element;
 
-typedef struct s_list
+typedef struct s_stack
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-	int		max_a;
-	int		min_a;
-	int		len_a;
-	int		len_b;
-}	t_list;
+	int			lenght;
+	t_element	*first;
+}	t_stack;
 
-/* checks*/
+/* checks */
 int			ft_error(int argc);
 int			ft_error_nb(char **argv);
 int			ft_nb_repeated(char **argv);
 int			ft_max_min(char **argv);
 
-/* aux*/
+/* aux */
 int			ft_start(char *str);
 int			ft_strcmp(char *s1, char *s2);
 long int	ft_l_atoi(char *str);
 int			ft_atoi(char *str);
 
+/* crear stacks */
+t_stack	ft_create_stack_a(int argc, char **argv);
+t_stack ft_create_stack_b();
+
+/* poner indices en los elementos del stack_a*/
+void	ft_index(t_stack *stack_a);
 #endif

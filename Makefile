@@ -6,7 +6,7 @@
 #    By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/20 11:45:09 by frmurcia          #+#    #+#              #
-#    Updated: 2022/11/28 16:50:12 by frmurcia         ###   ########.fr        #
+#    Updated: 2022/12/04 19:02:30 by frmurcia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,25 +14,24 @@
 GREEN			:= \033[32m
 NC				:= \033[m
 
-NAME = push_swap.a
+NAME = push_swap
 
 CC = gcc
-SRC = push_swap.c aux.c add_stack.c moves.c
+SRC = push_swap.c aux.c errors.c add_stack.c index.c
 
 # SRC_BONUS = 
 
 FLAGS = -Wall -Werror -Wextra
 OBJ = $(SRC:.c=.o)
-# OBJ_BONUS = $(SRC_BONUS:.c=.o)
 HEADER = push_swap.h
 
-RM = rm -Rf -o .ft_ -o
+RM = rm -f
 
 %.o : %.c $(HEADER)
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(NAME) : $(OBJ) $(HEADER)
-	$(FLAGS) $(NAME) $(OBJ)
+	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
 all : $(NAME)
 
@@ -49,4 +48,4 @@ fclean : clean
 
 re : fclean all
 
-.PHONY = all clean fclean re bonus
+.PHONY = all clean fclean re

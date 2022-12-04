@@ -6,38 +6,55 @@
 /*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 16:30:53 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/11/26 19:23:46 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/04 18:59:57 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "push_swap.h"
 
-t_stack	*ft_setup_stack_a(int argc, char **argv)
+t_stack ft_create_stack_b()
 {
-	int	start;
-	start = 2;
-	t_list	*stack_a;
-	t_stack	*temp;
-	t_stack	*node;
-	t_list	*list;
+	t_stack		stack_b;
+	stack_b.lenght = 0;
+	stack_b.first = NULL;
+	return (stack_b);
+}
 
-	printf("Hola que tal\n");
-	stack_a = (t_list *)malloc(sizeof(t_list));
-	if (!stack_a)
-		return (NULL);
-	printf("Hola que tal\n");
-	list->stack_a->data = 0;
-	list->stack_a->next = NULL;
-	printf("Hola que tal\n");
-	while (start < argc)
+t_stack	ft_create_stack_a(int argc, char **argv)
+{
+	t_stack		stack_a;
+	t_element 	*tmp;
+	t_element	*last;
+	int			i;
+//Empiezo a crear las piezas y meterlas en stack A
+	i = 1;
+	while (i < argc)
 	{
-		node = (t_stack *)malloc(sizeof(t_stack));
-		if (!node)
-			return (NULL);
-		node->data = ft_l_atoi(argv[start]);
-		node->next = node;
-		start++;
+		tmp = (t_element *)malloc(sizeof(t_element) * 1);
+		if (!tmp)
+			return (stack_a);
+		tmp->value = ft_atoi(argv[i]);
+		if(i == 1)
+		{
+			stack_a.first = tmp;
+			tmp->next = NULL;
+		}
+		else
+		{
+			last = stack_a.first;
+			while(last && last->next != NULL)
+			{
+				last = last->next;
+			}
+			last->next = tmp;
+			tmp->next = NULL;
+		}
+		i++;
 	}
-	node->next = NULL;
-	return (0);
+/*	while (stack_a.first)
+	{
+		printf("Valor %d\n", stack_a.first->value);
+		stack_a.first = stack_a.first->next;
+	}*/
+	return (stack_a);
 }
