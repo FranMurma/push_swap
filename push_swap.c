@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 17:41:59 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/08 18:40:31 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/08 18:53:03 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,8 @@ int	main(int argc, char **argv)
 		printf("Indice %d\n", tmp->index);
 		tmp = tmp->next;
 	}
-		printf(AMARILLO_T"\nPasamos OTRA VEZ MAS!! la funcion FT_PB\n");
-	ft_pb(&stack_a, &stack_b);
+	printf(AMARILLO_T"\nY AHORA FT_PA\n");
+	ft_pa(&stack_a, &stack_b);
 	printf(VERDE_T "El stack B es:\n");
 	tmp_b = stack_b.first;
 	while (tmp_b)

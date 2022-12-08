@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 18:57:16 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/08 18:40:34 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/08 18:52:59 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 //No hace nada si b está vacío.
 void	ft_pa(t_stack *stack_a, t_stack *stack_b)
 {
+	t_element	*tmp;
+	t_element	*tmp2;
 //Seran dos casos. El primero, si el stack b esta vacio 
 //(anadimos la comprobacion de que stack_b tenga elementos)
 	if (stack_b == NULL)
@@ -28,10 +30,13 @@ void	ft_pa(t_stack *stack_a, t_stack *stack_b)
 		write (1, "pa\n", 3);
 	}
 //El segundo, si ya hay algo en el stack a
-	else if(stack_b->first != NULL)
+	else if(stack_a->first != NULL)
 	{
-		stack_a->first = stack_b->first;
-		stack_b->first = stack_b->first->next;
+		tmp2 = stack_b->first->next;
+		tmp = stack_b->first;
+		tmp->next = stack_a->first;
+		stack_a->first = tmp;
+		stack_b->first = tmp2;
 		write (1, "pa\n", 3);
 	}
 }
@@ -53,7 +58,7 @@ void	ft_pb(t_stack *stack_a, t_stack *stack_b)
 		write (1, "pb\n", 3);
 	}
 //El segundo, si ya hay algo en el stack b
-	else if(stack_a->first != NULL)
+	else if(stack_b->first != NULL)
 	{
 		tmp2 = stack_a->first->next;
 		tmp = stack_a->first;		
