@@ -6,22 +6,19 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 16:58:52 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/04 19:17:17 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/05 19:45:40 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "push_swap.h"
 
-void	ft_index(t_stack *stack_a)
+t_stack	ft_index(t_stack *stack_a)
 {
 	int			count1;
-	int			count2;
 	t_element	*tmp1;
 	t_element	*tmp2;
 
-	count2 = 1;
 	tmp1 = stack_a->first;
-
 	while (tmp1)
 	{
 		count1 = 1;
@@ -35,4 +32,5 @@ void	ft_index(t_stack *stack_a)
 		tmp1->index = count1;
 		tmp1 = tmp1->next;
 	}
+	return (*stack_a);
 }

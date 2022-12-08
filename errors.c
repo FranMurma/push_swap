@@ -6,14 +6,14 @@
 /*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 18:39:32 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/03 17:47:55 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/08 13:56:19 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-/* CHECK de errores. El primero, FT_ERROR, comprueba que hay un segundo argc */
+/* CHECK de errores. El primero, FT_ERROR, comprueba que al menos hay un segundo argc */
 int	ft_error(int argc)
 {
 	if (argc < 2)
@@ -101,6 +101,36 @@ int	ft_max_min(char **argv)
 			count++;
 	}
 	return (0);
+}
+
+// Quinto. Comprueba que no este todo ya ordenado (return (0);)
+int	ft_sorted (int argc, t_stack *stack_a)
+{
+	t_element	*tmp1;
+	int			count1;
+
+	count1 = 0;
+	tmp1 = stack_a->first;
+
+	while (tmp1 && tmp1->next)
+	{
+		if (tmp1->value < tmp1->next->value)
+		{
+			count1++;
+		}
+		tmp1 = tmp1->next;
+	}
+//	printf("\nLa cantidad de numeros ordenados es: %d", count1 + 1);
+	if (count1 == argc -2)
+	{
+		write (1, "\nERROR5. Numeros ya ordenados\n", 30);
+		return (1);
+	}
+	else
+	{
+//		write (1, "\nBien, numeros desordenados\n", 30);
+		return (0);
+	}
 }
 /*
 int	main(int argc, char **argv)
