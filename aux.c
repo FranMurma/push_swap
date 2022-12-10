@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 11:54:53 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/03 18:35:06 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/10 18:56:02 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,3 +101,36 @@ int	ft_atoi(char *str)
 	}
 	return (almacen);
 }
+
+void	ft_print_stacks(t_stack *stack_a, t_stack *stack_b)
+{
+    t_element	*tmp;
+	
+	tmp = stack_a->first;
+	if (stack_a->first == NULL)
+		return ;
+    printf(VERDE_T "\nEl stack A es:\n");
+    while (tmp)
+    {
+        printf(RESET_COLOR"Valor %d  ", tmp->value);
+        printf("Indice %d\n", tmp->index);
+        tmp = tmp->next;
+    }
+	printf(VERDE_T "\nEl stack B es:\n");
+	tmp = stack_b->first;
+	if (stack_b->first == NULL)
+		return ;
+	while (tmp)
+	{
+		printf(RESET_COLOR"Valor %d  ", tmp->value);
+		printf("Indice %d\n", tmp->index);
+		tmp = tmp->next;
+	}
+}
+
+
+
+
+
+
+

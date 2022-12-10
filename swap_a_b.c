@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 19:48:04 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/08 17:56:58 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/10 19:52:53 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,22 @@
 //No hace nada si hay uno o menos elementos.
 void	ft_sa(t_stack *stack_a)
 {
-	t_element	*tmp;
-	
-	if (stack_a->first->next != NULL)
-	{
-		tmp = stack_a->first;
-		stack_a->first = stack_a->first->next;
-		stack_a->first->next = tmp;
-	}
-	write(1, "sa\n", 3);
+	t_element	*first;
+	t_element	*second;
+
+	write(1, "\nsa", 3);
+
+	//if(stack_a->lenght < 2)
+	//	return ;
+
+	first = stack_a->first;
+	second = stack_a->first->next;
+
+	first->next = second->next;
+	second->next = first;
+	stack_a->first = second;
+
+	//write(1, "\nsa", 3);
 }
 
 //swap b - Intercambia los dos primeros elementos encima del stack b.
@@ -39,14 +46,14 @@ void	ft_sb(t_stack *stack_b)
 		stack_b->first = stack_b->first->next;
 		stack_b->first = tmp;
 	}
-	write(1, "sb\n", 3);
+	write(1, "\nsb", 3);
 }
 
 void	ft_ss(t_stack *stack_a, t_stack *stack_b)
 {
 	ft_sa(stack_a);
 	ft_sb(stack_b);
-	write(1, "ss\n", 3);
+	write(1, "\nss", 3);
 }
 /*	
  *

@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 10:45:08 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/07 19:40:33 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/10 19:52:46 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int			ft_start(char *str);
 int			ft_strcmp(char *s1, char *s2);
 long int	ft_l_atoi(char *str);
 int			ft_atoi(char *str);
+void		ft_print_stacks(t_stack *stack_a, t_stack *stack_b);
 
 /* crear stacks */
 t_stack	ft_create_stack_a(int argc, char **argv);
@@ -64,5 +65,14 @@ void	ft_sb(t_stack *stack_b);
 void	ft_ss(t_stack *stack_a, t_stack *stack_b);
 void	ft_pa(t_stack *stack_a, t_stack *stack_b);
 void	ft_pb(t_stack *stack_a, t_stack *stack_b);
+void	ft_ra(t_stack *stack_a);
+void	ft_rb(t_stack *stack_b);
+void	ft_rr(t_stack *stack_a, t_stack *stack_b);
+void	ft_rra(t_stack *stack_a);
+void	ft_rrb(t_stack *stack_b);
+void	ft_rrr(t_stack *stack_a, t_stack *stack_b);
+
+//Acciones
+void	ft_two_num(t_stack *stack_a);
 
 #endif

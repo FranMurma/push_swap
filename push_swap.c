@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 17:41:59 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/08 18:53:03 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/10 19:52:49 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ int	main(int argc, char **argv)
 	ft_index(&stack_a);
 	t_element		*tmp;
 	tmp = stack_a.first;
-	while (tmp)
+/*	while (tmp)
 	{
 		printf("Valor %d  ", tmp->value);
 		printf("Indice %d\n", tmp->index);
 		tmp = tmp->next;
-	}
+	}*/
 //	printf("stack_a creado!\n");
 //Creamos el stack_b
 	stack_b = ft_create_stack_b();
@@ -43,7 +43,32 @@ int	main(int argc, char **argv)
 	{
 		return (0);
 	}
-/*	printf(VERDE_T"\nEl primer elemento del stack_a vale: %d", stack_a.first->value);
+	if (argc == 3)
+	{
+		ft_print_stacks(&stack_a, &stack_b);
+		ft_sa(&stack_a);
+	}
+	ft_print_stacks(&stack_a, &stack_b);
+
+	ft_pb(&stack_a, &stack_b);
+	ft_print_stacks(&stack_a, &stack_b);
+	ft_pb(&stack_a, &stack_b);
+	ft_print_stacks(&stack_a, &stack_b);
+/*	ft_ra(&stack_a);
+	ft_print_stacks(&stack_a, &stack_b);
+	ft_rb(&stack_b);
+	ft_print_stacks(&stack_a, &stack_b);
+	ft_rr(&stack_a, &stack_b);
+	ft_print_stacks(&stack_a, &stack_b);
+	ft_rra(&stack_a);
+	ft_print_stacks(&stack_a, &stack_b);
+	ft_rrb(&stack_b);
+	ft_print_stacks(&stack_a, &stack_b);
+	ft_rrr(&stack_a, &stack_b);
+	ft_print_stacks(&stack_a, &stack_b);
+
+OJO, aqui iba un comentador	
+	printf(VERDE_T"\nEl primer elemento del stack_a vale: %d", stack_a.first->value);
 	printf("\nEl segundo elemento del stack-a vale: %d", stack_a.first->next->value);
 	ft_sa(&stack_a);
 	printf(RESET_COLOR"\nAplicamos la funcion FT_SA");
@@ -51,7 +76,7 @@ int	main(int argc, char **argv)
 	printf("\nCompruebo que conserve el indice. Indice del primero: %d", stack_a.first->index);
 	printf("\nEl segundo elemento del stack-a vale: %d", stack_a.first->next->value);
 	printf("\nCompruebo que conserve el indice. Indice del segundo: %d", stack_a.first->next->index);
-*/
+
 	printf(AMARILLO_T"\nPasamos la funcion FT_PB\n");
 	ft_pb(&stack_a, &stack_b);
 	t_element	*tmp_b;
@@ -111,7 +136,9 @@ int	main(int argc, char **argv)
 	}
 	return (0);
 }
-/*	printf(RESET_COLOR"\nFT_PB. Ahora el stack_b es: %d", stack_b.first->value);
+
+	OJO. aqui iba un comentador
+	printf(RESET_COLOR"\nFT_PB. Ahora el stack_b es: %d", stack_b.first->value);
 	printf("\nPrimero de stack_a ahora es: %d", stack_a.first->value);
 	ft_pb(&stack_a, &stack_b);
 	printf("\nFT_PB otra vez. \nEl primero de stack_b es: %d", stack_b.first->value);
@@ -124,12 +151,22 @@ int	main(int argc, char **argv)
 }
 
 	t_list	list;
+    first = stack_a->first;
+    second = stack_a->first->next;
 
+    first->next = second->next;
+    second->next = first;
+    stack_a->first = second;
 	list.stack_a = ft_create_stack_a(argc, argv);
 	list.stack_b = NULL;
 	ft_check_sorted(&list);	// ver si esta ordenado y si no, modificar, envia toda la list
 	ft_check-sorted(&list.stack_a);//igual que el anterior, pero envia solo el stack_a
-		return (0);
+		return (0);    first = stack_a->first;
+    second = stack_a->first->next;
+
+    first->next = second->next;
+    second->next = first;
+    stack_a->first = second;
 }
 
 
@@ -144,3 +181,4 @@ void	ft_check_sorted(t_list **stack_a)
 	t_stack *stack_a;
 
 */
+}
