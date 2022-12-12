@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 16:58:52 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/05 19:45:40 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/12 19:47:13 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,3 +34,30 @@ t_stack	ft_index(t_stack *stack_a)
 	}
 	return (*stack_a);
 }
+
+int	ft_error_dup(t_stack *stack_a)
+{
+	t_element	*tmp1;
+	t_element	*tmp2;
+
+	tmp1 = stack_a->first;
+	while (tmp1)
+	{
+		tmp2 = tmp1;
+		while (tmp1->index != tmp2->next->index && tmp2->index != stack_a->lenght)
+		{
+			tmp2 = tmp2->next;
+		}
+		if (tmp2->index == stack_a->lenght)
+			tmp1 = tmp1->next;
+		else if (tmp1->index == tmp2->next->index)
+		{
+			write(1, "ERROR5. Numero duplicado\n", 25);
+			return (0);
+		}
+		tmp1 = tmp1->next;
+	}
+}
+
+
+

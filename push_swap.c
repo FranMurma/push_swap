@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 17:41:59 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/10 19:52:49 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/12 19:41:27 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,22 +39,69 @@ int	main(int argc, char **argv)
 	stack_b = ft_create_stack_b();
 //	printf("stack_b creado!\n");
 //Comprobamos que el stack_a no esta ordenado
+	ft_error_dup(&stack_a);
 	if (ft_sorted(argc, &stack_a) == 1)
 	{
 		return (0);
 	}
+/*
 	if (argc == 3)
 	{
 		ft_print_stacks(&stack_a, &stack_b);
 		ft_sa(&stack_a);
-	}
+		ft_print_stacks(&stack_a, &stack_b);
+	} 
+*/
 	ft_print_stacks(&stack_a, &stack_b);
-
+	ft_make_pb(&stack_a, &stack_b);
+	ft_print_stacks(&stack_a, &stack_b);
+	ft_make_pb(&stack_a, &stack_b);
+	ft_print_stacks(&stack_a, &stack_b);
+	ft_make_pb(&stack_a, &stack_b);
+	ft_print_stacks(&stack_a, &stack_b);
+/*	ft_make_rr(&stack_a, &stack_b);
+	ft_print_stacks(&stack_a, &stack_b);
+	ft_make_sb(&stack_a);
+	ft_make_sb(&stack_a);
+	ft_make_sb(&stack_a);
+	ft_print_stacks(&stack_a, &stack_b);
+	ft_make_sb(&stack_b);
+	ft_print_stacks(&stack_a, &stack_b);
+	ft_make_ss(&stack_a, &stack_b);
+	ft_print_stacks(&stack_a, &stack_b);
+	ft_make_sa(&stack_a);
+	ft_print_stacks(&stack_a, &stack_b);
+	ft_make_rrr(&stack_a, &stack_b);
+	ft_print_stacks(&stack_a, &stack_b);
+*
+	ft_print_stacks(&stack_a, &stack_b);
+	printf("-----------------------------------------------");
+	printf("-----------------------------------------------");
+	ft_pb(&stack_a, &stack_b);
+	ft_pb(&stack_a, &stack_b);
+	ft_pb(&stack_a, &stack_b);
+	ft_print_stacks(&stack_a, &stack_b);
+	printf("-----------------------------------------------");
+	ft_rr(&stack_a, &stack_b);
+	ft_print_stacks(&stack_a, &stack_b);
+	printf("-----------------------------------------------");
+	ft_rrr(&stack_a, &stack_b);
+	ft_print_stacks(&stack_a, &stack_b);
+	printf("-----------------------------------------------");
+	ft_sa(&stack_a);
+	ft_print_stacks(&stack_a, &stack_b);
+	printf("-----------------------------------------------");
+	ft_pa(&stack_a, &stack_b);
+	ft_pa(&stack_a, &stack_b);
+	ft_pa(&stack_a, &stack_b);
+	ft_print_stacks(&stack_a, &stack_b);
+	printf("-----------------------------------------------");
+OJO aqui habia un comentador
 	ft_pb(&stack_a, &stack_b);
 	ft_print_stacks(&stack_a, &stack_b);
 	ft_pb(&stack_a, &stack_b);
 	ft_print_stacks(&stack_a, &stack_b);
-/*	ft_ra(&stack_a);
+	ft_ra(&stack_a);
 	ft_print_stacks(&stack_a, &stack_b);
 	ft_rb(&stack_b);
 	ft_print_stacks(&stack_a, &stack_b);

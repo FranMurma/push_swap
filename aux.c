@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 11:54:53 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/10 18:56:02 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/12 17:43:58 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ long int	ft_l_atoi(char *str)
 
 /* FT_STRCMP, adaptacion de ft_strcmp sin el n, sin devolver unsigned,
  * para el check de errores. 
- * Compara dos strings y comprrueba que no haya datos repetidos*/
+ * Compara dos strings y comprueba que no haya datos repetidos*/
 int	ft_strcmp(char *s1, char *s2)
 {
 	int	count;
@@ -105,7 +105,7 @@ int	ft_atoi(char *str)
 void	ft_print_stacks(t_stack *stack_a, t_stack *stack_b)
 {
     t_element	*tmp;
-	
+
 	tmp = stack_a->first;
 	if (stack_a->first == NULL)
 		return ;
@@ -116,6 +116,7 @@ void	ft_print_stacks(t_stack *stack_a, t_stack *stack_b)
         printf("Indice %d\n", tmp->index);
         tmp = tmp->next;
     }
+	printf("Lenght A = %d\n", stack_a->lenght);
 	printf(VERDE_T "\nEl stack B es:\n");
 	tmp = stack_b->first;
 	if (stack_b->first == NULL)
@@ -126,6 +127,7 @@ void	ft_print_stacks(t_stack *stack_a, t_stack *stack_b)
 		printf("Indice %d\n", tmp->index);
 		tmp = tmp->next;
 	}
+	printf("Lenght B =  %d\n", stack_b->lenght);
 }
 
 

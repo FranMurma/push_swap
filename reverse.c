@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 19:03:55 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/10 18:13:09 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/12 16:56:55 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ posición, de forma que el último elemento se convierte en el primero.*/
 		tmp->next = NULL;
 		tmp2->next = stack_a->first;
 		stack_a->first = tmp2;
-		write (1, "\nrra", 4);
 	}
 }
 
@@ -62,11 +61,22 @@ void	ft_rrb(t_stack *stack_b)
 		tmp->next = NULL;
 		tmp2->next = stack_b->first;
 		stack_b->first = tmp2;
-		write (1, "\nrrb", 4);
 	}
 }
 
-void	ft_rrr(t_stack *stack_a, t_stack *stack_b)
+void	ft_make_rra(t_stack *stack_a)
+{
+	write (1, "\nrra", 4);
+	ft_rra(stack_a);
+}
+
+void	ft_make_rrb(t_stack *stack_b)
+{
+	write (1, "\nrrb", 4);
+	ft_rrb(stack_b);
+}
+
+void	ft_make_rrr(t_stack *stack_a, t_stack *stack_b)
 {
 	ft_rra(stack_a);
 	ft_rrb(stack_b);

@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:11:27 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/10 17:58:30 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/12 17:00:36 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ de forma que el primer elemento se convierte en el último.*/
 		stack_a->first = stack_a->first->next;
 		tmp->next = tmp2;
 		tmp->next->next = NULL;
-		write (1, "\nra", 3);
 	}
 }
 
@@ -44,9 +43,9 @@ de forma que el primer elemento se convierte en el último.*/
 	t_element	*tmp;
 	t_element	*tmp2;
 	
-	if (stack_b->first->next == NULL)
+	if (stack_b->lenght == 0 || stack_b->lenght == 1)
 		return ;
-	else if (stack_b->first->next != NULL)
+	else if (stack_b->lenght > 1)
 	{
 		tmp = stack_b->first;
 		tmp2 = stack_b->first;
@@ -58,13 +57,24 @@ de forma que el primer elemento se convierte en el último.*/
 		stack_b->first = stack_b->first->next;
 		tmp->next = tmp2;
 		tmp->next->next = NULL;
-		write (1, "\nrb", 3);
 	}
 }
 
-void	ft_rr(t_stack *stack_a, t_stack *stack_b)
+void	ft_make_ra(t_stack *stack_a)
 {
+	write (1, "\nra", 3);
+	ft_ra(stack_a);
+}
+
+void	ft_make_rb(t_stack *stack_b)
+{
+	write (1, "\nrb", 3);
+	ft_rb(stack_b);
+}
+
+void	ft_make_rr(t_stack *stack_a, t_stack *stack_b)
+{
+	write (1, "\nrr", 3);
 	ft_ra(stack_a);
 	ft_rb(stack_b);
-	write (1, "\nrr", 3);
 }

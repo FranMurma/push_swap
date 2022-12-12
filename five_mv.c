@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 17:58:52 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/10 19:44:15 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/12 16:37:15 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_two_num(t_stack *stack_a)
 {
-	ft_sa(stack_a);
+	ft_make_sa(stack_a);
 }

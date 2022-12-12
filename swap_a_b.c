@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 19:48:04 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/10 19:52:53 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/12 16:36:57 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,49 +19,71 @@ void	ft_sa(t_stack *stack_a)
 	t_element	*first;
 	t_element	*second;
 
-	write(1, "\nsa", 3);
-
-	//if(stack_a->lenght < 2)
-	//	return ;
-
-	first = stack_a->first;
-	second = stack_a->first->next;
-
-	first->next = second->next;
-	second->next = first;
-	stack_a->first = second;
-
-	//write(1, "\nsa", 3);
+	if (stack_a->lenght < 2)
+		return ;
+	if (stack_a->lenght == 2)
+	{
+		first = stack_a->first;
+		stack_a->first = stack_a->first->next;
+		stack_a->first->next = first;
+		stack_a->first->next->next = NULL;
+	}
+	else
+	{
+		first = stack_a->first;
+		second = stack_a->first->next;
+		first->next = second->next;
+		second->next = first;
+		stack_a->first = second;
+	}
 }
 
 //swap b - Intercambia los dos primeros elementos encima del stack b.
 //No hace nada si hay menos de dos elementos.
 void	ft_sb(t_stack *stack_b)
 {
-	t_element	*tmp;
+	t_element	*first;
+	t_element	*second;
 
-	if (stack_b->first->next != NULL)
+	if (stack_b->lenght < 2)
+		return ;
+	if (stack_b->lenght == 2)
 	{
-		tmp = stack_b->first;
+		first = stack_b->first;
 		stack_b->first = stack_b->first->next;
-		stack_b->first = tmp;
+		stack_b->first->next = first;
+		stack_b->first->next->next = NULL;
 	}
-	write(1, "\nsb", 3);
+	else
+	{
+		first = stack_b->first;
+		second = stack_b->first->next;
+		first->next = second->next;
+		second->next = first;
+		stack_b->first = second;
+	}
 }
 
-void	ft_ss(t_stack *stack_a, t_stack *stack_b)
+void	ft_make_sa(t_stack *stack_a)
 {
+	write (1, "\nsa", 3);
 	ft_sa(stack_a);
-	ft_sb(stack_b);
-	write(1, "\nss", 3);
 }
-/*	
- *
- *	{
-		tmp.value = stack_a->first->next.value;
-		tmp.index = stack_a->first->next.index;
-		first->next.value = first.value;
-		first->next.index = first.index;
-		first.value = tmp.value;
-		first.index = tmp.index;
-	}	*/
+
+void	ft_make_sb(t_stack *stack_b)
+{
+	write (1, "\nsb", 3);
+	ft_sb(stack_b);
+}
+
+void	ft_make_ss(t_stack *stack_a, t_stack *stack_b)
+{
+	if (stack_a->lenght >= 2 && stack_b->lenght >= 2)
+	{
+		write (1, "\nss", 3);
+		ft_sa(stack_a);
+		ft_sb(stack_b);
+	}
+	else
+		return ;
+}

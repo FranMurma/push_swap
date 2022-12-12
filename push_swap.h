@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 10:45:08 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/10 19:52:46 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/12 19:38:49 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int			ft_error_nb(char **argv);
 int			ft_nb_repeated(char **argv);
 int			ft_max_min(char **argv);
 int			ft_sorted(int argc, t_stack *stack_a);
+int			ft_error_dup(t_stack *stack_a);
 
 /* aux */
 int			ft_start(char *str);
@@ -60,17 +61,17 @@ t_stack ft_create_stack_b();
 t_stack	ft_index(t_stack *stack_a);
 
 // Movimientos
-void	ft_sa(t_stack *stack_a);
-void	ft_sb(t_stack *stack_b);
-void	ft_ss(t_stack *stack_a, t_stack *stack_b);
-void	ft_pa(t_stack *stack_a, t_stack *stack_b);
-void	ft_pb(t_stack *stack_a, t_stack *stack_b);
-void	ft_ra(t_stack *stack_a);
-void	ft_rb(t_stack *stack_b);
-void	ft_rr(t_stack *stack_a, t_stack *stack_b);
-void	ft_rra(t_stack *stack_a);
-void	ft_rrb(t_stack *stack_b);
-void	ft_rrr(t_stack *stack_a, t_stack *stack_b);
+void	ft_make_sa(t_stack *stack_a);
+void	ft_make_sb(t_stack *stack_b);
+void	ft_make_ss(t_stack *stack_a, t_stack *stack_b);
+void	ft_make_pa(t_stack *stack_a, t_stack *stack_b);
+void	ft_make_pb(t_stack *stack_a, t_stack *stack_b);
+void	ft_make_ra(t_stack *stack_a);
+void	ft_make_rb(t_stack *stack_b);
+void	ft_make_rr(t_stack *stack_a, t_stack *stack_b);
+void	ft_make_rra(t_stack *stack_a);
+void	ft_make_rrb(t_stack *stack_b);
+void	ft_make_rrr(t_stack *stack_a, t_stack *stack_b);
 
 //Acciones
 void	ft_two_num(t_stack *stack_a);
