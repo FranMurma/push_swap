@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 17:41:59 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/12 19:41:27 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/15 19:46:14 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,50 +16,47 @@ int	main(int argc, char **argv)
 {
 	t_stack	stack_a;
 	t_stack	stack_b;
+	int		max;
+	int		min;
+	int		count;
 
-//Comprobacion de errrores parametros entrada
-	if (ft_error(argc) == -1 || ft_error_nb(argv) == -1
-		|| ft_nb_repeated(argv) == -1 || ft_max_min(argv) == -1)
-	return (-1);
-	printf("\nSIN ERRORES EN LOS DATOS DE ENTRADA!\n");
+	count = 0;
 //Creamos el stack_a
 	stack_a = ft_create_stack_a(argc, argv);
 //Ponemos un indice a cada numero en relacion al orden que deben tener
 	ft_index(&stack_a);
-	t_element		*tmp;
-	tmp = stack_a.first;
-/*	while (tmp)
-	{
-		printf("Valor %d  ", tmp->value);
-		printf("Indice %d\n", tmp->index);
-		tmp = tmp->next;
-	}*/
-//	printf("stack_a creado!\n");
 //Creamos el stack_b
 	stack_b = ft_create_stack_b();
-//	printf("stack_b creado!\n");
-//Comprobamos que el stack_a no esta ordenado
-	ft_error_dup(&stack_a);
-	if (ft_sorted(argc, &stack_a) == 1)
-	{
-		return (0);
-	}
-/*
+//Comprobamos que los datos de entrada estan bien pasando las funciones de errors.c
+	if (ft_error(argc) == -1 || ft_error_nb(argv) == -1 ||ft_max_min(argv)
+		|| ft_error_dup(&stack_a) == -1 || ft_sorted(argc, &stack_a) == -1)
+		return (-1);
+	printf("\nSIN ERRORES EN LOS DATOS DE ENTRADA!\n");
+	max = ft_max_a(&stack_a, count);
+	min = ft_min_a(&stack_a);
+	printf("\nEl elemento maximo del stack A esta en la posicion: %d", max);
+	printf("\nEl elemento minimo de A esta en la posicion: %d", min);
+
 	if (argc == 3)
 	{
+		ft_two_num(&stack_a);
+		ft_print(&stack_a, &stack_b); 
+	ft_print_stacks(&stack_a, &stack_b);
+	if (argc == 4)
+		ft_three_num(&stack_a);
 		ft_print_stacks(&stack_a, &stack_b);
-		ft_sa(&stack_a);
+	if (argc == 5)
+		ft_four_num(&stack_a, &stack_b);
 		ft_print_stacks(&stack_a, &stack_b);
-	} 
-*/
-	ft_print_stacks(&stack_a, &stack_b);
+/*
+ * ft_print_stacks(&stack_a, &stack_b);
 	ft_make_pb(&stack_a, &stack_b);
 	ft_print_stacks(&stack_a, &stack_b);
 	ft_make_pb(&stack_a, &stack_b);
 	ft_print_stacks(&stack_a, &stack_b);
 	ft_make_pb(&stack_a, &stack_b);
 	ft_print_stacks(&stack_a, &stack_b);
-/*	ft_make_rr(&stack_a, &stack_b);
+	ft_make_rr(&stack_a, &stack_b);
 	ft_print_stacks(&stack_a, &stack_b);
 	ft_make_sb(&stack_a);
 	ft_make_sb(&stack_a);

@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 18:39:32 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/12 18:03:14 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/14 13:29:38 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,10 @@ int	ft_error_nb(char **argv)
 	return (0);
 }
 
-/* Tercera funcion check. FT_NB_REPEATED comprueba que en los argumentos
- * introducidos no hay ningun numero repetido */
+/*
+* Tercera funcion check. FT_NB_REPEATED comprueba que en los argumentos
+ * introducidos no hay ningun numero repetido *
+ * LO ELIMINO. Al pasarlo antes de convertirlo en numeros no reconoce que un 0004 sea lo mismo que 4. Sustituido por ft_error_dup
 int	ft_nb_repeated(char **argv)
 {
 	int	c1;
@@ -78,6 +80,31 @@ int	ft_nb_repeated(char **argv)
 				c2++;
 		}
 		c1++;
+	}
+	return (0);
+}
+*/
+
+int	ft_error_dup(t_stack *stack_a)
+{
+	t_element	*tmp1;
+	t_element	*tmp2;
+
+	tmp1 = stack_a->first;
+	while (tmp1)
+	{
+		tmp2 = tmp1;
+		while (tmp2->next && (tmp1->index != tmp2->next->index))
+		{
+			tmp2 = tmp2->next;
+		}
+		if (tmp2->next && (tmp1->index == tmp2->next->index))
+		{
+			write(1, "ERROR3. Numero duplicado\n", 25);
+			return (-1);
+		}
+		else if (!tmp2->next)
+			tmp1 = tmp1->next;
 	}
 	return (0);
 }
@@ -124,7 +151,7 @@ int	ft_sorted (int argc, t_stack *stack_a)
 	if (count1 == argc -2)
 	{
 		write (1, "\nERROR5. Numeros ya ordenados\n", 30);
-		return (1);
+		return (-1);
 	}
 	else
 	{
@@ -132,22 +159,3 @@ int	ft_sorted (int argc, t_stack *stack_a)
 		return (0);
 	}
 }
-/*
-int	main(int argc, char **argv)
-{
-	t_list	list; 
-	if (ft_error(argc) == -1 || ft_error_nb(argv) == -1
-		|| ft_nb_repeated(argv) == -1 || ft_max_min(argv) == -1)
-		return (-1);
-	printf("TODO ESTA BIEN!\n");
-	// ft_setup_stack_a(&list);
-	// while (list.stack_a->next)
-	// {
-	// 	printf("Hola");
-	// 	printf("Los argumentos son: %d\n", list.stack_a->data);
-	// 	printf("Hola2");
-	// 	list.stack_a = list.stack_a->next;
-	// }
-	return (0);
-}
-*/

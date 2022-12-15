@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 11:54:53 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/12 17:43:58 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/13 18:39:38 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,10 +129,3 @@ void	ft_print_stacks(t_stack *stack_a, t_stack *stack_b)
 	}
 	printf("Lenght B =  %d\n", stack_b->lenght);
 }
-
-
-
-
-
-
-
