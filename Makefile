@@ -6,7 +6,7 @@
 #    By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/20 11:45:09 by frmurcia          #+#    #+#              #
-#    Updated: 2022/12/13 18:55:37 by frmurcia         ###   ########.fr        #
+#    Updated: 2022/12/17 16:09:05 by frmurcia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NC				:= \033[m
 NAME = push_swap
 
 CC = gcc
-SRC = push_swap.c aux.c errors.c add_stack.c index.c swap_a_b.c push_a_b.c rotate.c reverse.c five_mv.c 
+SRC = push_swap.c aux.c errors.c add_stack.c index.c swap_a_b.c push_a_b.c rotate.c reverse.c maxmin.c five_mv.c 
 
 # SRC_BONUS = 
 

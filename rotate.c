@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:11:27 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/12 17:00:36 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/16 16:31:47 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,19 +62,19 @@ de forma que el primer elemento se convierte en el último.*/
 
 void	ft_make_ra(t_stack *stack_a)
 {
-	write (1, "\nra", 3);
+	write (1, "\nra\n", 4);
 	ft_ra(stack_a);
 }
 
 void	ft_make_rb(t_stack *stack_b)
 {
-	write (1, "\nrb", 3);
+	write (1, "\nrb\n", 4);
 	ft_rb(stack_b);
 }
 
 void	ft_make_rr(t_stack *stack_a, t_stack *stack_b)
 {
-	write (1, "\nrr", 3);
+	write (1, "\nrr\n", 4);
 	ft_ra(stack_a);
 	ft_rb(stack_b);
 }

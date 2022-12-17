@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 17:41:59 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/15 19:46:14 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/17 19:22:52 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@ int	main(int argc, char **argv)
 	t_stack	stack_b;
 	int		max;
 	int		min;
-	int		count;
 
-	count = 0;
-//Creamos el stack_a
 	stack_a = ft_create_stack_a(argc, argv);
 //Ponemos un indice a cada numero en relacion al orden que deben tener
 	ft_index(&stack_a);
@@ -32,22 +29,32 @@ int	main(int argc, char **argv)
 		|| ft_error_dup(&stack_a) == -1 || ft_sorted(argc, &stack_a) == -1)
 		return (-1);
 	printf("\nSIN ERRORES EN LOS DATOS DE ENTRADA!\n");
-	max = ft_max_a(&stack_a, count);
+	max = ft_max_a(&stack_a);
 	min = ft_min_a(&stack_a);
 	printf("\nEl elemento maximo del stack A esta en la posicion: %d", max);
 	printf("\nEl elemento minimo de A esta en la posicion: %d", min);
-
 	if (argc == 3)
 	{
 		ft_two_num(&stack_a);
-		ft_print(&stack_a, &stack_b); 
-	ft_print_stacks(&stack_a, &stack_b);
-	if (argc == 4)
-		ft_three_num(&stack_a);
 		ft_print_stacks(&stack_a, &stack_b);
+		ft_print_stacks(&stack_a, &stack_b);
+	}
+	if (argc == 4)
+	{
+		ft_three_num(&stack_a, &stack_b);
+		ft_print_stacks(&stack_a, &stack_b);
+	}
 	if (argc == 5)
+	{
 		ft_four_num(&stack_a, &stack_b);
 		ft_print_stacks(&stack_a, &stack_b);
+	}
+	if (argc == 6)
+	{
+		ft_five_num(&stack_a, &stack_b);
+		ft_print_stacks(&stack_a, &stack_b);
+	}
+}
 /*
  * ft_print_stacks(&stack_a, &stack_b);
 	ft_make_pb(&stack_a, &stack_b);
@@ -225,4 +232,3 @@ void	ft_check_sorted(t_list **stack_a)
 	t_stack *stack_a;
 
 */
-}

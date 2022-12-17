@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 19:03:55 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/12 16:56:55 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/16 15:38:27 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,13 +66,13 @@ void	ft_rrb(t_stack *stack_b)
 
 void	ft_make_rra(t_stack *stack_a)
 {
-	write (1, "\nrra", 4);
+	write (1, "\nrra\n", 5);
 	ft_rra(stack_a);
 }
 
 void	ft_make_rrb(t_stack *stack_b)
 {
-	write (1, "\nrrb", 4);
+	write (1, "\nrrb\n", 5);
 	ft_rrb(stack_b);
 }
 
@@ -80,5 +80,5 @@ void	ft_make_rrr(t_stack *stack_a, t_stack *stack_b)
 {
 	ft_rra(stack_a);
 	ft_rrb(stack_b);
-	write (1, "\nrrr", 4);
+	write (1, "\nrrr\n", 5);
 }
