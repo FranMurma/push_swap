@@ -22,11 +22,6 @@ void	ft_three_num(t_stack *stack_a, t_stack *stack_b)
 {
 	int	max;
 	int	min;
-	int	count;
-//	t_stack stack_b;
-
-//	stack_b = NULL;
-	count = 0;
 //buscamos los maximos y minimos en el stack A	
 	max = ft_max_a(stack_a);
     min = ft_min_a(stack_a);
@@ -68,49 +63,36 @@ void	ft_four_num(t_stack *stack_a, t_stack *stack_b)
 {
 	int	max;
 	int	min;
-	int	count;
 
-	count = 0;	
-    min = ft_min_a(stack_a);
+	min = ft_min_a(stack_a);
     max = ft_max_a(stack_a);
-	if (min == 1)
+	if (min == 1) //OJO, cambiar para que al final solo quede ft_three y el printf
 	{
-		ft_make_pb(stack_a, stack_b);
-		ft_three_num(stack_a, stack_b);
-		ft_make_pa(stack_a, stack_b);
-		ft_print_stacks(stack_a, stack_b);
 	}
 	else if (min == 2)
 	{
 		ft_make_sa(stack_a);
-		ft_make_pb(stack_a, stack_b);
-		ft_three_num(stack_a, stack_b);
-		ft_make_pa(stack_a, stack_b);
 	}
 	else if (min == 3)
 	{
 		ft_make_ra(stack_a);
 		ft_make_ra(stack_a);
-		ft_make_pb(stack_a, stack_b);
-		ft_three_num(stack_a, stack_b);
-		ft_make_pa(stack_a, stack_b);
 	}
 	else if (min == 4)
 	{
 		ft_make_rra(stack_a);
-		ft_three_num(stack_a, stack_b);
-		ft_make_pa(stack_a, stack_b);
 	}
+	ft_make_pb(stack_a, stack_b);
+	ft_three_num(stack_a, stack_b);
+	ft_make_pa(stack_a, stack_b);
+	ft_print_stacks(stack_a, stack_b);
 }
 
 void	ft_five_num(t_stack *stack_a, t_stack *stack_b)
 {
 	int	max;
 	int	min;
-	int	count;
 
-	printf("Aqui entra\n");
-	count = 0;
     min = ft_min_a(stack_a);
     max = ft_max_a(stack_a);
 		if (min == 2)
