@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 16:30:53 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/11 17:58:35 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/21 20:04:08 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ t_stack	ft_create_stack_a(int argc, char **argv)
 		{
 			stack_a.first = tmp;
 			tmp->next = NULL;
+			tmp->prev = NULL; 
 		}
 		else if (i > 1)
 		{
@@ -50,6 +51,7 @@ t_stack	ft_create_stack_a(int argc, char **argv)
 				last = last->next;
 			}
 			last->next = tmp;
+			tmp->prev = last;
 			tmp->next = NULL;
 		}
 		i++;

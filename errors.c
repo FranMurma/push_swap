@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 18:39:32 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/16 17:00:14 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/22 16:12:52 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_error(int argc)
 }
 
 /* Segunda comprobacion de errores. FT_ERROR_NB comprueba que los argumentos
- * introducidos son numeros o un - (solo en la primera posicion) */
+ * introducidos son numeros, un - o un + (solo en la primera posicion) */
 int	ft_error_nb(char **argv)
 {
 	int	c1;
@@ -131,7 +131,7 @@ int	ft_max_min(char **argv)
 }
 
 // Quinto. Comprueba que no este todo ya ordenado (return (0);)
-int	ft_sorted (int argc, t_stack *stack_a)
+int	ft_sorted(t_stack *stack_a)
 {
 	t_element	*tmp1;
 	int			count1;
@@ -148,7 +148,7 @@ int	ft_sorted (int argc, t_stack *stack_a)
 		tmp1 = tmp1->next;
 	}
 //	printf("\nLa cantidad de numeros ordenados es: %d", count1 + 1);
-	if (count1 == argc -2)
+	if (count1 == stack_a->lenght -2)
 	{
 		write (1, "\nERROR5. Numeros ya ordenados\n", 30);
 		return (-1);
@@ -159,3 +159,4 @@ int	ft_sorted (int argc, t_stack *stack_a)
 		return (0);
 	}
 }
+

@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 17:41:59 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/17 19:22:52 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/22 16:13:03 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int argc, char **argv)
 	stack_b = ft_create_stack_b();
 //Comprobamos que los datos de entrada estan bien pasando las funciones de errors.c
 	if (ft_error(argc) == -1 || ft_error_nb(argv) == -1 ||ft_max_min(argv)
-		|| ft_error_dup(&stack_a) == -1 || ft_sorted(argc, &stack_a) == -1)
+		|| ft_error_dup(&stack_a) == -1 || ft_sorted(&stack_a) == -1)
 		return (-1);
 	printf("\nSIN ERRORES EN LOS DATOS DE ENTRADA!\n");
 	max = ft_max_a(&stack_a);
@@ -53,6 +53,10 @@ int	main(int argc, char **argv)
 	{
 		ft_five_num(&stack_a, &stack_b);
 		ft_print_stacks(&stack_a, &stack_b);
+	}
+	if (argc > 6 && argc < 22 )
+	{
+		ft_compare_holds(&stack_a, &stack_b);
 	}
 }
 /*
