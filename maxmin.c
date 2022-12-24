@@ -6,12 +6,15 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 15:30:33 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/22 19:35:44 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/23 16:53:04 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "push_swap.h"
 
+// ft_max_ y ft_min buscan el maximo y el minimo respectivamente,
+// cada uno en sus cadenas, y nos devuelve la posicion en la que estan.
+//
 int	ft_max_a(t_stack *stack_a)
 {
 	t_element	*tmp;

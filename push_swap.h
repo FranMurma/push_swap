@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 10:45:08 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/22 19:55:57 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/24 20:08:38 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,12 @@ void	ft_two_num(t_stack *stack_a);
 void	ft_three_num(t_stack *stack_a, t_stack *stack_b);
 void	ft_four_num(t_stack *stack_a, t_stack *stack_b);
 void	ft_five_num(t_stack *stack_a, t_stack *stack_b);
-int		ft_long_short(t_stack *stack_a);
-int		ft_hold_first(t_stack *stack_a);
-int		ft_hold_second(t_stack *stack_a);
+int		ft_long_short(t_stack *stack_a, t_stack *stack_b);
+int		ft_hold_first(t_stack *stack_a, t_stack *stack_b);
+int		ft_hold_second(t_stack *stack_a, t_stack * stack_b);
 void	ft_compare_holds(t_stack *stack_a, t_stack *stack_b);
+int		ft_comp_holds(t_stack *stack_a, t_stack *stack_b);
+void	ft_firstmovs(t_stack *stack_a, t_stack *stack_b);
+void	ft_move_b(t_stack *stack_b);
 
 #endif

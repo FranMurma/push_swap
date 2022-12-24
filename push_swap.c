@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 17:41:59 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/22 16:13:03 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/24 19:54:51 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@ int	main(int argc, char **argv)
 	printf("\nSIN ERRORES EN LOS DATOS DE ENTRADA!\n");
 	max = ft_max_a(&stack_a);
 	min = ft_min_a(&stack_a);
-	printf("\nEl elemento maximo del stack A esta en la posicion: %d", max);
-	printf("\nEl elemento minimo de A esta en la posicion: %d", min);
+	ft_print_stacks(&stack_a, &stack_b);
+	printf("\nEl elemento maximo del stack A esta en la posicion: %d\n", max);
+	printf("\nEl elemento minimo de A esta en la posicion: %d\n", min);
 	if (argc == 3)
 	{
 		ft_two_num(&stack_a);
