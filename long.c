@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 14:54:06 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/24 20:08:41 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/26 13:46:15 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ int	ft_long_short(t_stack *stack_a, t_stack *stack_b)
 
 	printf("\nLlegamos a ft_long_short\n");
 	a = stack_a->lenght + stack_b->lenght;
-	if (a > 5 && a <= 21)
+	if (a > 5 && a <= 20)
 	{
 		printf("\nLlegamos al chunk");
 		return (a);
 	}
-	else if (a > 21 && a <= 100)
+	else if (a > 20 && a <= 2000)
 	{
 		a = stack_a->lenght + stack_b->lenght / 5;
 		return (a);
@@ -102,7 +102,7 @@ void	ft_compare_holds(t_stack *stack_a, t_stack *stack_b)
 	int	max_b;
 
 //Primer problema, el stack b esta vacio, asi que metemos los dos primeros numeros
-	while (stack_a->first)
+	while (stack_a->first != NULL)
 	{
 		if (stack_b->lenght == 0)
 		{
@@ -179,5 +179,55 @@ void	ft_compare_holds(t_stack *stack_a, t_stack *stack_b)
 			}
 		}
 	}
+	ft_make_pb(stack_a, stack_b);
 	printf("\nSALIMOS DEL WHILE!!!!!\n");
+	ft_refill(stack_a, stack_b);
+}
+
+void	ft_refill(t_stack *stack_a, t_stack *stack_b)
+{
+	int			max_b;
+	int			count;
+	t_element	*tmp;
+
+	while (stack_b->lenght > 0)
+	{
+		tmp = stack_b->first;
+		max_b = ft_nb_max(stack_b);
+		count = 0;
+//En el proximo while igualamos el tmp con el max_b. Con eso tenemos un contador
+//que nos dira si sale mas a cuenta hacer un RB o un RRB.
+		while (tmp->next && tmp->value != max_b)
+		{
+			max_b = ft_nb_max(stack_b);
+			tmp = tmp->next;
+			count++;
+			if (stack_b->lenght - count <= (stack_b->lenght / 2))
+			{
+				while (stack_b != 0)
+				{
+					printf("\nEl Max de B es: %d\n", max_b);
+					while (stack_b->first->value != max_b)
+					{
+						ft_make_rb(stack_b);
+						printf("\nEl primer valor del stack b ahora es: %d", stack_b->first->value);
+					}
+					ft_make_pa(stack_a, stack_b);
+				}
+				return ;
+			}
+			else if (stack_b->lenght - count > (stack_b->lenght / 2))
+			{
+				while (stack_b->lenght >  0)
+				{
+					while (stack_b->first->value != max_b)
+					{
+						ft_make_rrb(stack_b);
+					}
+					ft_make_pa(stack_a, stack_b);
+				}
+			}
+			ft_print_stacks(stack_a, stack_b);
+		}
+	}
 }

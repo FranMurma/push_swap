@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 10:45:08 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/24 20:08:38 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/26 11:49:28 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,6 @@ void	ft_compare_holds(t_stack *stack_a, t_stack *stack_b);
 int		ft_comp_holds(t_stack *stack_a, t_stack *stack_b);
 void	ft_firstmovs(t_stack *stack_a, t_stack *stack_b);
 void	ft_move_b(t_stack *stack_b);
+void	ft_refill(t_stack *stack_a, t_stack *stack_b);
 
 #endif
