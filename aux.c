@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   aux.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
+/*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 11:54:53 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/23 16:53:25 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/27 17:59:14 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,5 +127,5 @@ void	ft_print_stacks(t_stack *stack_a, t_stack *stack_b)
 		printf("Indice %d\n", tmp->index);
 		tmp = tmp->next;
 	}
-	printf("Lenght B =  %d\n", stack_b->lenght);
+	// printf("Lenght B =  %d\n", stack_b->lenght);
 }

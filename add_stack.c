@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 16:30:53 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/26 11:23:41 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/27 17:51:21 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ t_stack ft_create_stack_b()
 	t_stack		stack_b;
 	stack_b.lenght = 0;
 	stack_b.first = NULL;
-	printf("Lenght B %d\n", stack_b.lenght);
+//	printf("Lenght B %d\n", stack_b.lenght);
 	return (stack_b);
-	printf("\nStacks creados con exito\n");
+//	printf("\nStacks creados con exito\n");
 }
 
 t_stack	ft_create_stack_a(int argc, char **argv)

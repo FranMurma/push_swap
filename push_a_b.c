@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_a_b.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
+/*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 18:57:16 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/12 17:48:51 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/27 17:55:37 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_make_pa(t_stack *stack_a, t_stack *stack_b)
 		stack_a->first->next = NULL;
 		stack_b->lenght = stack_b->lenght - 1;
 		stack_a->lenght = stack_a->lenght + 1;
-		write (1, "\npa", 3);
+		write (1, "pa\n", 3);
 	}
 /*El tercero, tanto stack a como estack b no estan vacios */
 	else if (stack_a->lenght > 0)
@@ -42,7 +42,7 @@ void	ft_make_pa(t_stack *stack_a, t_stack *stack_b)
 		stack_b->first = tmp2;
 		stack_b->lenght = stack_b->lenght - 1;
 		stack_a->lenght = stack_a->lenght + 1;
-		write (1, "\npa", 3);
+		write (1, "pa\n", 3);
 	}
 }
 
@@ -63,7 +63,7 @@ void	ft_make_pb(t_stack *stack_a, t_stack *stack_b)
 		stack_b->first->next = NULL;
 		stack_b->lenght = stack_b->lenght + 1;
 		stack_a->lenght = stack_a->lenght - 1;
-		write (1, "\npb", 3);
+		write (1, "pb\n", 3);
 	}
 /*Tercero, ni stack b ni stack a estan vacios*/
 	else if (stack_b->lenght >- 0)
@@ -75,6 +75,6 @@ void	ft_make_pb(t_stack *stack_a, t_stack *stack_b)
 		stack_a->first = tmp2;
 		stack_b->lenght = stack_b->lenght + 1;
 		stack_a->lenght = stack_a->lenght - 1;
-		write (1, "\npb", 3);
+		write (1, "pb\n", 3);
 	}
 }

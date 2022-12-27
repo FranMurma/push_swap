@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap_a_b.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
+/*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 19:48:04 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/12 16:36:57 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/27 18:00:58 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,13 +66,13 @@ void	ft_sb(t_stack *stack_b)
 
 void	ft_make_sa(t_stack *stack_a)
 {
-	write (1, "\nsa", 3);
+	write (1, "sa\n", 3);
 	ft_sa(stack_a);
 }
 
 void	ft_make_sb(t_stack *stack_b)
 {
-	write (1, "\nsb", 3);
+	write (1, "sb\n", 3);
 	ft_sb(stack_b);
 }
 
@@ -80,7 +80,7 @@ void	ft_make_ss(t_stack *stack_a, t_stack *stack_b)
 {
 	if (stack_a->lenght >= 2 && stack_b->lenght >= 2)
 	{
-		write (1, "\nss", 3);
+		write (1, "ss\n", 3);
 		ft_sa(stack_a);
 		ft_sb(stack_b);
 	}

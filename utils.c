@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 19:36:16 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/26 13:46:18 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/27 17:40:59 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int	ft_nb_min(t_stack *stack_b)
 	return (nbr_min);
 }
 
+/*
 //Funcion para comparar que numeros que pertenecen al chunk 
 //estan mas alto y mas bajo en la pila y cuantos movimientos
 //implica llevarlos a la cima de la pila.
@@ -93,7 +94,6 @@ void	ft_firstmovs(t_stack *stack_a, t_stack *stack_b)
 			ft_make_rb(stack_b);
 	}
 	ft_print_stacks(stack_a, stack_b);
-//	return ;
 }
 
 //Funcion para llevar el elemento mas pequeno del stack_b arriba del todo.
@@ -126,4 +126,4 @@ void	ft_move_b(t_stack *stack_b)
 		{
 			ft_make_rb(stack_b);
 		}
-}
+}*/

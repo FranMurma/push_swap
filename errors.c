@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 18:39:32 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/24 20:02:55 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/12/27 18:09:19 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,7 +148,7 @@ int	ft_sorted(t_stack *stack_a)
 		tmp1 = tmp1->next;
 	}
 //	printf("\nLa cantidad de numeros ordenados es: %d", count1 + 1);
-	if (count1 == stack_a->lenght -2)
+	if (count1 == stack_a->lenght -1)
 	{
 		write (1, "\nERROR5. Numeros ya ordenados\n", 30);
 		return (-1);
@@ -159,4 +159,3 @@ int	ft_sorted(t_stack *stack_a)
 		return (0);
 	}
 }
-
