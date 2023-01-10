@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 10:45:08 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/27 18:16:46 by frmurcia         ###   ########.fr       */
+/*   Updated: 2023/01/09 20:34:31 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int ft_max_b(t_stack *stack_b);
 int ft_min_b(t_stack *stack_b);
 int ft_nb_max(t_stack *stack_b);
 int ft_nb_min(t_stack *stack_b);
+int	ft_check_stack(t_stack *stack_a, t_stack *stack_b);
 
 // Movimientos
 void	ft_make_sa(t_stack *stack_a);
@@ -92,12 +93,14 @@ void	ft_four_num(t_stack *stack_a, t_stack *stack_b);
 void	ft_five_num(t_stack *stack_a, t_stack *stack_b);
 void	ft_long_short(t_stack *stack_a, t_stack *stack_b);
 int		ft_chunk(t_stack *stack_a, t_stack *stack_b);
-// int		ft_hold_first(t_stack *stack_a, t_stack *stack_b);
-// int		ft_hold_second(t_stack *stack_a, t_stack * stack_b);
-// void	ft_long_long(t_stack *stack_a, t_stack *stack_b);
-// int		ft_comp_holds(t_stack *stack_a, t_stack *stack_b);
-// void	ft_firstmovs(t_stack *stack_a, t_stack *stack_b);
-// void	ft_move_b(t_stack *stack_b);
+int		ft_chunk_max(t_stack *stack_a, t_stack *stack_b);
+int		ft_chunk_min(t_stack *stack_a, t_stack *stack_b);
+int		ft_hold_first(t_stack *stack_a, t_stack *stack_b);
+int		ft_hold_second(t_stack *stack_a, t_stack * stack_b);
+void	ft_long_long(t_stack *stack_a, t_stack *stack_b);
+int		ft_comp_holds(t_stack *stack_a, t_stack *stack_b);
+void	ft_firstmovs(t_stack *stack_a, t_stack *stack_b);
+void	ft_move_b(t_stack *stack_b);
 void	ft_refill(t_stack *stack_a, t_stack *stack_b);
 
 #endif

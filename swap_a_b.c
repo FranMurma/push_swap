@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 19:48:04 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/27 18:00:58 by frmurcia         ###   ########.fr       */
+/*   Updated: 2023/01/04 16:14:31 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,13 @@ void	ft_sa(t_stack *stack_a)
 
 	if (stack_a->lenght < 2)
 		return ;
-	if (stack_a->lenght == 2)
-	{
-		first = stack_a->first;
-		stack_a->first = stack_a->first->next;
-		stack_a->first->next = first;
-		stack_a->first->next->next = NULL;
-	}
 	else
 	{
 		first = stack_a->first;
 		second = stack_a->first->next;
+		first->prev = second->prev;
 		first->next = second->next;
+		second->prev = NULL;
 		second->next = first;
 		stack_a->first = second;
 	}
@@ -47,18 +42,13 @@ void	ft_sb(t_stack *stack_b)
 
 	if (stack_b->lenght < 2)
 		return ;
-	if (stack_b->lenght == 2)
-	{
-		first = stack_b->first;
-		stack_b->first = stack_b->first->next;
-		stack_b->first->next = first;
-		stack_b->first->next->next = NULL;
-	}
 	else
 	{
 		first = stack_b->first;
 		second = stack_b->first->next;
+		first->prev = second->prev;
 		first->next = second->next;
+		second->prev = NULL;
 		second->next = first;
 		stack_b->first = second;
 	}

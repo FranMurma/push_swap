@@ -6,17 +6,17 @@
 /*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 18:39:32 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/27 18:16:41 by frmurcia         ###   ########.fr       */
+/*   Updated: 2023/01/05 15:41:59 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 int	main(int argc, char **argv)
 {
-	t_stack	stack_a;
-	t_stack	stack_b;
-	int		max;
-	int		min;
+	t_stack		stack_a;
+	t_stack		stack_b;
+	int			max;
+	int			min;
 
 	stack_a = ft_create_stack_a(argc, argv);
 //Ponemos un indice a cada numero en relacion al orden que deben tener
@@ -41,6 +41,16 @@ int	main(int argc, char **argv)
 		ft_four_num(&stack_a, &stack_b);
 	else if (argc == 6)
 		ft_five_num(&stack_a, &stack_b);
-	else if (argc > 6 && argc < 22 )
+	else if (argc == 7)
+	{
+		ft_make_ra(&stack_a);
+		ft_print_stacks(&stack_a, &stack_b);
+		printf("Este es el first->next de A ahora: %d\n", stack_a.first->next->value);
+		printf("Este es el prev del segundo: %d\n", stack_a.first->next->prev->value);
+		return (0);
+	}
+	else if (argc > 7 && argc < 21 )
 		ft_long_short(&stack_a, &stack_b);
+	else if (argc > 20)
+		ft_long_long(&stack_a, &stack_b);
 }

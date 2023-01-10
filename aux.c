@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 11:54:53 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/27 17:59:14 by frmurcia         ###   ########.fr       */
+/*   Updated: 2023/01/10 17:06:04 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,8 +112,12 @@ void	ft_print_stacks(t_stack *stack_a, t_stack *stack_b)
     printf(VERDE_T "\nEl stack A es:\n");
     while (tmp)
     {
-        printf(RESET_COLOR"Valor %d  ", tmp->value);
-        printf("Indice %d\n", tmp->index);
+        printf(RESET_COLOR"\nValor %d  ", tmp->value);
+        printf("Indice %d  ", tmp->index);
+		if (tmp->next)
+			printf("El next es: %d  ", tmp->next->value);
+		if (tmp->prev)
+			printf("El previo es: %d  ", tmp->prev->value);
         tmp = tmp->next;
     }
 	printf("Lenght A = %d\n", stack_a->lenght);
@@ -123,8 +127,12 @@ void	ft_print_stacks(t_stack *stack_a, t_stack *stack_b)
 		return ;
 	while (tmp)
 	{
-		printf(RESET_COLOR"Valor %d  ", tmp->value);
-		printf("Indice %d\n", tmp->index);
+		printf(RESET_COLOR"\nValor %d  ", tmp->value);
+		printf("Indice %d   ", tmp->index);
+		if (tmp->next)
+			printf("El next es: %d  ", tmp->next->value);
+		if (tmp->prev)
+			printf("El previo es: %d  ", tmp->prev->value);
 		tmp = tmp->next;
 	}
 	// printf("Lenght B =  %d\n", stack_b->lenght);

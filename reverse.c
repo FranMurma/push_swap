@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 19:03:55 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/27 17:59:14 by frmurcia         ###   ########.fr       */
+/*   Updated: 2023/01/05 15:15:04 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,10 @@ void	ft_rra(t_stack *stack_a)
 		}
 		tmp->next = NULL;
 		tmp2->next = stack_a->first;
+		stack_a->first->prev = tmp2;
 		stack_a->first = tmp2;
+		stack_a->first->prev = NULL;
+		return ;
 	}
 }
 
@@ -64,7 +67,9 @@ void	ft_rrb(t_stack *stack_b)
 		}
 		tmp->next = NULL;
 		tmp2->next = stack_b->first;
+		stack_b->first->prev = tmp;
 		stack_b->first = tmp2;
+		stack_b->first->prev = NULL;
 	}
 }
 
