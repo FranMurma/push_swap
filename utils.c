@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 19:36:16 by frmurcia          #+#    #+#             */
-/*   Updated: 2023/01/10 17:02:12 by frmurcia         ###   ########.fr       */
+/*   Updated: 2023/01/16 20:17:25 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ int	ft_nb_max(t_stack *stack_b)
 	if (!stack_b->first)
 		return (0);
 	tmp = stack_b->first;
-	nbr_max = tmp->value;
+	nbr_max = tmp->index;
 	while (tmp)
 	{
-		if (nbr_max < tmp->value)
-			nbr_max = tmp->value;
+		if (nbr_max < tmp->index)
+			nbr_max = tmp->index;
 		tmp = tmp->next;
 	}
 	return (nbr_max);
@@ -43,11 +43,11 @@ int	ft_nb_min(t_stack *stack_b)
 		return (0);
 
 	tmp = stack_b->first;
-	nbr_min = tmp->value;
+	nbr_min = tmp->index;
 	while (tmp)
 	{
-		if (nbr_min > tmp->value)
-			nbr_min = tmp->value;
+		if (nbr_min > tmp->index)
+			nbr_min = tmp->index;
 		tmp = tmp->next;
 	}
 	return (nbr_min);
@@ -63,9 +63,9 @@ int	ft_comp_holds(t_stack *stack_a, t_stack *stack_b)
 
 	count_f = ft_hold_first(stack_a, stack_b);
 	count_s = ft_hold_second(stack_a, stack_b);
-	printf("Este es el contador F: %d\n", count_f);
-	printf("Y este el contador de S: %d\n", count_s);
-	printf("Este es el lenght del stack A en este momento: %d\n", stack_a->lenght);
+//	printf("Este es el contador F: %d\n", count_f);
+//	printf("Y este el contador de S: %d\n", count_s);
+//	printf("Este es el lenght del stack A en este momento: %d\n", stack_a->lenght);
 	if (count_f <= count_s && (stack_a->lenght / 2 >= count_f))
 		return (0);
 	else if (count_f <= count_s && (stack_a->lenght / 2 < count_f))
@@ -74,7 +74,8 @@ int	ft_comp_holds(t_stack *stack_a, t_stack *stack_b)
 		return (1);
 	else if (count_f >= count_s && (stack_a->lenght / 2 >= count_s))
 		return (0);
-	return (-1);
+	else
+		return (-1);
 }
 
 //Funcion que hace los primeros movimientos para llevar los dos primeros numeros
@@ -101,14 +102,14 @@ void	ft_firstmovs(t_stack *stack_a, t_stack *stack_b)
 			tmp = tmp->next;
 			count++;
 		}
-		while (tmp2->next)
+	while (stack_a && tmp2->next)
 		{
 			tmp2 = tmp2->next;
 		}
-		while (tmp2->prev && (tmp2->index < c_min || tmp2->index > c_max))
+		while (stack_a && tmp2->prev && (tmp2->index < c_min || tmp2->index > c_max))
 		{
-			printf("el min es %d y el max es %d\n", c_min, c_max);
-			printf("el indice de temp2 es %d\n", tmp2->index);
+//			printf("el min es %d y el max es %d\n", c_min, c_max);
+//			printf("el indice de temp2 es %d\n", tmp2->index);
 			tmp2 = tmp2->prev;
 			count2++;
 		}
@@ -149,9 +150,9 @@ void	ft_firstmovs(t_stack *stack_a, t_stack *stack_b)
 		ft_make_pb(stack_a, stack_b);
 		tmp = stack_a->first;
 		tmp2 = stack_a->first;
-		ft_print_stacks(stack_a, stack_b);
+//		ft_print_stacks(stack_a, stack_b);
 	}
-	printf("Llegamos al final de los first moves\n");
+//	printf("Llegamos al final de los first moves\n");
 }
 
 
@@ -170,7 +171,7 @@ void	ft_move_b(t_stack *stack_b)
 	count = 0;
 	min_b = ft_nb_min(stack_b);
 	tmp = stack_b->first;
-	while (tmp->next && tmp->value != min_b)
+	while (stack_b && tmp->next && tmp->index > min_b)
 	{
 		tmp = tmp->next;
 		count++;
@@ -180,9 +181,44 @@ void	ft_move_b(t_stack *stack_b)
 		{
 			ft_make_rrb(stack_b);
 		}
-	if (stack_b->lenght / 2 >= count)
+	else if (stack_b->lenght / 2 >= count)
 		while (stack_b && tmp != stack_b->first)
 		{
 			ft_make_rb(stack_b);
 		}
 }
+
+void	ft_check_place(t_stack *stack_a, t_stack *stack_b)
+{
+	t_element	*tmp;
+	int			count;
+
+	count = 0;
+	tmp = stack_b->first;
+	while (stack_a && stack_b &&tmp && tmp->next)
+	{
+		if (tmp->index > stack_a->first->index && tmp->next->index < stack_a->first->index)
+		{
+			if (count <= (stack_b->lenght / 2))
+			{
+				while (tmp != stack_b->first)
+				{
+					ft_make_rb(stack_b);
+				}
+				ft_make_rb(stack_b);
+			}
+			else if (count > (stack_b->lenght / 2))
+			{
+				while (tmp != stack_b->first)
+				{
+					ft_make_rrb(stack_b);
+				}
+				ft_make_rb(stack_b);
+			}
+		}
+		tmp = tmp->next;
+		count++;
+	}
+}
+
+

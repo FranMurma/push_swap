@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 16:30:53 by frmurcia          #+#    #+#             */
-/*   Updated: 2023/01/10 18:26:22 by frmurcia         ###   ########.fr       */
+/*   Updated: 2023/01/19 15:45:26 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,16 @@ t_stack	ft_create_stack_a(int argc, char **argv)
 		stack_a.lenght++;
 	}
 	return (stack_a);
+}
+
+void ft_free_stack_a(t_stack *stack_a)
+{
+	int			i;
+
+	i = 1;
+	while (i < stack_a->lenght)
+	{
+	free(stack_a->first);
+	i++;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 18:39:32 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/12/27 18:09:19 by frmurcia         ###   ########.fr       */
+/*   Updated: 2023/01/18 19:43:44 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_error(int argc)
 {
 	if (argc < 2)
 	{
-		write (1, "ERROR1: no se ha introducido un numero\n", 39);
+		write (1, "Error\n", 6);
 		return (-1);
 	}
 	return (0);
@@ -46,7 +46,7 @@ int	ft_error_nb(char **argv)
 				c2++;
 			else
 			{
-				write(1, "ERROR2: un argumento no es un numero\n", 37);
+				write(1, "Error\n", 6);
 				return (-1);
 			}
 		}
@@ -100,7 +100,7 @@ int	ft_error_dup(t_stack *stack_a)
 		}
 		if (tmp2->next && (tmp1->index == tmp2->next->index))
 		{
-			write(1, "ERROR3. Numero duplicado\n", 25);
+			write(1, "Error\n", 6);
 			return (-1);
 		}
 		else if (!tmp2->next)
@@ -121,7 +121,7 @@ int	ft_max_min(char **argv)
 		if ((ft_l_atoi(argv[count]) >= 2147483647)
 			|| (ft_l_atoi(argv[count]) <= -2147483648))
 		{
-			write (1, "ERROR4: el numero se excede de los limites\n", 43);
+			write (1, "Error\n", 6);
 			return (-1);
 		}
 		else
@@ -150,7 +150,7 @@ int	ft_sorted(t_stack *stack_a)
 //	printf("\nLa cantidad de numeros ordenados es: %d", count1 + 1);
 	if (count1 == stack_a->lenght -1)
 	{
-		write (1, "\nERROR5. Numeros ya ordenados\n", 30);
+		write (1, "\nError\n", 6);
 		return (-1);
 	}
 	else

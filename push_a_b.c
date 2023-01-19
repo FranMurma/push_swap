@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 18:57:16 by frmurcia          #+#    #+#             */
-/*   Updated: 2023/01/09 17:23:36 by frmurcia         ###   ########.fr       */
+/*   Updated: 2023/01/10 18:41:01 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ void	ft_make_pa(t_stack *stack_a, t_stack *stack_b)
 	}
 	stack_b->lenght = stack_b->lenght - 1;
 	stack_a->lenght = stack_a->lenght + 1;
-	printf("El lenght de A es: %d\n", stack_a->lenght);
-	printf("El lenght de B es: %d\n", stack_b->lenght);
+//	printf("El lenght de A es: %d\n", stack_a->lenght);
+//	printf("El lenght de B es: %d\n", stack_b->lenght);
 	write (1, "pa\n", 3);
 }
 
@@ -98,7 +98,7 @@ void	ft_make_pb(t_stack *stack_a, t_stack *stack_b)
 	stack_b->lenght = stack_b->lenght + 1;
 	stack_a->lenght = stack_a->lenght - 1;
 	write (1, "pb\n", 3);
-	printf("El lenght de A es: %d\n", stack_a->lenght);
-	printf("El lenght de B es: %d\n", stack_b->lenght);
-	ft_print_stacks(stack_a, stack_b);
+//	printf("El lenght de A es: %d\n", stack_a->lenght);
+//	printf("El lenght de B es: %d\n", stack_b->lenght);
+//	ft_print_stacks(stack_a, stack_b);
 }

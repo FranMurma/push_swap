@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   longbis.c                                          :+:      :+:    :+:   */
+/*   long.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/18 17:50:17 by frmurcia          #+#    #+#             */
-/*   Updated: 2023/01/19 15:46:38 by frmurcia         ###   ########.fr       */
+/*   Created: 2022/12/20 14:54:06 by frmurcia          #+#    #+#             */
+/*   Updated: 2023/01/18 17:50:04 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "push_swap.h"
 
 //Miramos de cuanto es cada chunk. Miramos cual es el primer elemento menor que el chunk
 //bajando por el stack y le ponemos un contador para saber el numero de movimientos
-//que implica llevarlo arriba. A ese nodo lo llamamos hold_first.
-//Retornamos el contador para poder comparar la cantidad de movimientos con los
-//de hold_second. Comprobado y funciona OK.
+//que implica llevarlo arriba. A ese nodo lo llamamos hold_first. 
+//Retornamos el contador para poder comparar la cantidad de movimientos con los 
+//de hold_second. Comprobado y funciona OK. 
 int	ft_hold_first(t_stack *stack_a, t_stack *stack_b)
 {
 	t_element	*tmp;
@@ -107,7 +108,6 @@ void	ft_long_long(t_stack *stack_a, t_stack *stack_b)
 //	printf("Llegamos al REFILL\n");
 //	ft_print_stacks(stack_a, stack_b);
 	ft_refill(stack_a, stack_b);
-	ft_free_stack_a(stack_a);
 }
 
 /*	ft_make_pb(stack_a, stack_b);
@@ -116,72 +116,98 @@ void	ft_long_long(t_stack *stack_a, t_stack *stack_b)
 	ft_print_stacks(stack_a, stack_b);
 	ft_refill(stack_a, stack_b);
 }*/
-
+	
 void	ft_refill(t_stack *stack_a, t_stack *stack_b)
 {
 	int			max_b;
 	int			count;
+	int			count2;
 	t_element	*tmp;
-//	int			paso;
+	t_element	*tmp2;
+	int			paso;
+	int			salida;
 
-//	paso = 0;
+	salida = 0;
+	paso = 0;
 	tmp = stack_b->first;
-	while (stack_b->lenght > 0 && tmp->next)
+	tmp2 = stack_b->first;
+	while (tmp->next && tmp2->next && stack_b->lenght > 0)
 	{
-//		printf("Prrincipio de vuelta\n");
-//		count = 0;
+		count = 0;
+		count2 = 0;
 		tmp = stack_b->first;
+		tmp2 = stack_b->first;
 		max_b = ft_nb_max(stack_b);
 		while (tmp->next && tmp->index != max_b)
 		{
 			tmp = tmp->next;
 			count++;
 		}
-//		paso++;
-//		printf("Esta es la %d vez que hacemos el refill\n", paso);
-//		printf("El maximo ahora en B es: %d \n", max_b);
-		if (stack_b->first && count <= stack_b->lenght / 2)
+		while (tmp2->next && tmp2->index != max_b - 1)
 		{
-			while (stack_b->first && stack_b->first->index != max_b)
-			{
-				if(stack_b->first->index == max_b -1 && stack_b->first->next->index != max_b) // && stack_b->first->next->next->index != max_b)
-				{
-//					printf("Encontramos un max -1. Lo pasamos: %d\n", stack_b->first->index);
-					ft_make_pa(stack_a, stack_b);
-				}
-//				printf("Y deberiamos seguir haciendo RB hasta pasar el maximo: %d \n", max_b);
-				ft_make_rb(stack_b);
-			}
-//			printf("Este es el index que vamos a pasar al A:   %d \n", stack_b->first->index);
-			ft_make_pa(stack_a, stack_b);
-			if (stack_a->lenght >= 2 && stack_a->first->next->index == max_b - 1)
-				ft_make_sa(stack_a);
-//			printf("Este es el index que hemos pasado al A     %d \n", stack_a->first->index);
+			tmp2 = tmp2->next;
+			count2++;
 		}
-		else if (stack_b->first && count > stack_b->lenght / 2)
+		paso++;
+		printf("Esta es la %d vez que hacemos el refill\n", paso);
+		printf("El maximo ahora en B es: %d \n", max_b);
+		printf("Estos son los datos. El contador del maximo es: %d \n El contador del maximo menos 1 es: %d \n  El elegido sera el menor", count, count2);
+		if (count < count2)
 		{
-			while (stack_b->first && stack_b->first->index != max_b)
+			if (stack_b->first && count <= stack_b->lenght / 2)
 			{
-				if(stack_b->first->index == max_b -1 && stack_b->first->next->index != max_b) // && stack_b->first->next->next->index != max_b)
+				while (stack_b->first && stack_b->first->index != max_b)
 				{
-//					printf("Encontramos un max -1. Lo pasamos: %d\n", stack_b->first->index);
-					ft_make_pa(stack_a, stack_b);
+					ft_make_rb(stack_b);
 				}
-//				printf("Y deneriamos seguir haciendo RRB \n");
-				ft_make_rrb(stack_b);
+				printf("Este es el index que vamos a pasar al A:   %d \n", stack_b->first->index);
+				ft_make_pa(stack_a, stack_b);
+				printf("Este es el index que hemos pasado al A     %d \n", stack_a->first->index);
 			}
-//			printf("Este es el index que vamos a pasar al A:     %d \n", stack_b->first->index);
-			ft_make_pa(stack_a, stack_b);
-			if(stack_a->lenght >= 2 && stack_a->first->next->index == max_b -1)
-				ft_make_sa(stack_a);
-//			printf("Este es el index que hemos pasado al A     %d \n", stack_a->first->index);
+			else if (stack_b->first && count > stack_b->lenght / 2)
+			{
+				while (stack_b->first && stack_b->first->index != max_b)
+				{
+					ft_make_rrb(stack_b);
+				}
+				printf("Este es el index que vamos a pasar al A:     %d \n", stack_b->first->index);
+				ft_make_pa(stack_a, stack_b);
+				printf("Este es el index que hemos pasado al A     %d \n", stack_a->first->index);
+			}
 		}
-		count = 0;
+		else if (count > count2)
+		{
+			if (stack_b->first && count <= stack_b->lenght / 2)
+				{
+					while (stack_b->first && stack_b->first->index != max_b - 1)
+					{
+						ft_make_rb(stack_b);
+					}
+					printf("Este es el index que vamos a pasar al A:   %d \n", stack_b->first->index);
+					ft_make_pa(stack_a, stack_b);
+					printf("Este es el index que hemos pasado al A     %d \n", stack_a->first->index);
+				}
+			else if (stack_b->first && count > stack_b->lenght / 2)
+			{
+				while (stack_b->first && stack_b->first->index != max_b - 1)
+				{
+					ft_make_rrb(stack_b);
+				}
+				printf("Este es el index que vamos a pasar al A:     %d \n", stack_b->first->index);
+				ft_make_pa(stack_a, stack_b);
+				printf("Este es el index que hemos pasado al A     %d \n", stack_a->first->index);
+			}
+		}
+		salida++;
+		printf("Por la salida del while grande paso   %d  Veces\n", salida);
 		tmp = stack_b->first;
-//		printf("Final de vuelta \n");
+		tmp2 = stack_a->first;
+		count = 0;
+		count2 = 0;
+		max_b = ft_nb_max(stack_b);
 	}
 	ft_make_pa(stack_a, stack_b);
-//	ft_print_stacks(stack_a, stack_b);
+	ft_print_stacks(stack_a, stack_b);
 }
 
 //		printf("El maximo de b ahora es: %d", max_b);

@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 17:58:52 by frmurcia          #+#    #+#             */
-/*   Updated: 2023/01/05 15:17:01 by frmurcia         ###   ########.fr       */
+/*   Updated: 2023/01/14 19:12:56 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	ft_three_num(t_stack *stack_a, t_stack *stack_b)
 	}
 	else if (min == 3 && max == 2)//2 3 1
 		ft_make_rra(stack_a);
-	ft_print_stacks(stack_a, stack_b);
+//	ft_print_stacks(stack_a, stack_b);
 }
 
 void	ft_four_num(t_stack *stack_a, t_stack *stack_b)
@@ -78,7 +78,7 @@ void	ft_four_num(t_stack *stack_a, t_stack *stack_b)
 	ft_make_pb(stack_a, stack_b);
 	ft_three_num(stack_a, stack_b);
 	ft_make_pa(stack_a, stack_b);
-	ft_print_stacks(stack_a, stack_b);
+//	ft_print_stacks(stack_a, stack_b);
 }
 
 void	ft_five_num(t_stack *stack_a, t_stack *stack_b)
@@ -108,5 +108,5 @@ void	ft_five_num(t_stack *stack_a, t_stack *stack_b)
 	ft_make_pb(stack_a, stack_b);
 	ft_four_num(stack_a, stack_b);
 	ft_make_pa(stack_a, stack_b);
-	ft_print_stacks(stack_a, stack_b);
+//	ft_print_stacks(stack_a, stack_b);
 }

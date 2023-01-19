@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 10:45:08 by frmurcia          #+#    #+#             */
-/*   Updated: 2023/01/09 20:34:31 by frmurcia         ###   ########.fr       */
+/*   Updated: 2023/01/19 15:51:23 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,19 +59,20 @@ int			ft_lenght(t_stack *stack_a);
 	/* crear stacks */
 t_stack	ft_create_stack_a(int argc, char **argv);
 t_stack ft_create_stack_b();
-
+void	ft_free_stack_a(t_stack *stack_a);
 /* poner indices en los elementos del stack_a*/
 t_stack	ft_index(t_stack *stack_a);
 
 /* Encontrar maximos y minimos en los stacks */
-int ft_lenght(t_stack *stack_a);
-int	ft_max_a(t_stack *stack_a);
-int ft_min_a(t_stack *stack_a);
-int ft_max_b(t_stack *stack_b);
-int ft_min_b(t_stack *stack_b);
-int ft_nb_max(t_stack *stack_b);
-int ft_nb_min(t_stack *stack_b);
-int	ft_check_stack(t_stack *stack_a, t_stack *stack_b);
+int		ft_lenght(t_stack *stack_a);
+int		ft_max_a(t_stack *stack_a);
+int		ft_min_a(t_stack *stack_a);
+int		ft_max_b(t_stack *stack_b);
+int		ft_min_b(t_stack *stack_b);
+int		ft_nb_max(t_stack *stack_b);
+int		ft_nb_min(t_stack *stack_b);
+int		ft_check_stack(t_stack *stack_a, t_stack *stack_b);
+void	ft_check_place(t_stack *stack_a, t_stack *stack_b);
 
 // Movimientos
 void	ft_make_sa(t_stack *stack_a);

@@ -1,44 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   long_long.c                                        :+:      :+:    :+:   */
+/*   long.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/27 10:55:35 by frmurcia          #+#    #+#             */
-/*   Updated: 2023/01/11 16:16:35 by frmurcia         ###   ########.fr       */
+/*u                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/20 14:54:06 by frmurcia          #+#    #+#             */
+/*   Updated: 2022/12/27 19:24:04 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
 
-/*
-// Para entre 6 y 20 numeros hacemos solo 1 chunk
-int	ft_long_short(t_stack *stack_a, t_stack *stack_b)
+#include "push_swap.h"
+
+//Para mas de 20 numeros hacemos 11 chunks
+int	ft_chunk(t_stack *stack_a, t_stack *stack_b)
 {
 	int	a;
 
-	printf("\nLlegamos a ft_long_short\n");
-	a = stack_a->lenght + stack_b->lenght;
-	if (a > 5 && a <= 20)
-	{
-		printf("\nLlegamos al chunk");
-		return (a);
-	}
-	else if (a > 20 && a <= 2000)
-	{
-		a = stack_a->lenght + stack_b->lenght / 5;
-		return (a);
-	}
-	return (0);
+	a = stack_a->lenght + stack_b->lenght / 11;
+	return (a);
 }
-*/
-/*
+
 //Miramos de cuanto es cada chunk. Miramos cual es el primer elemento menor que el chunk
 //bajando por el stack y le ponemos un contador para saber el numero de movimientos
-//que implica llevarlo arriba. A ese nodo lo llamamos hold_first.
-//Retornamos el contador para poder comparar la cantidad de movimientos con los
-//de hold_second.
+//que implica llevarlo arriba. A ese nodo lo llamamos hold_first. 
+//Retornamos el contador para poder comparar la cantidad de movimientos con los 
+//de hold_second. 
+/*
 int	ft_hold_first(t_stack *stack_a, t_stack *stack_b)
 {
 	t_element	*tmp;
@@ -48,7 +37,7 @@ int	ft_hold_first(t_stack *stack_a, t_stack *stack_b)
 	printf("\neEste es el Lenght: %d\n", stack_a->lenght);
 	count_f = 0;
 	tmp = stack_a->first;
-	chunk = ft_long_short(stack_a, stack_b);
+	chunk = ft_chunk(stack_a, stack_b);
 	printf ("\nCada chunk es de): %d\n", chunk);
 //Buscamos la primera aparicion de un numero cuyo valor este en el chunk. Salimos del bucle
 //con el tmp en ese numero. El hold_first sera ese numero.
@@ -77,7 +66,7 @@ int	ft_hold_second(t_stack *stack_a, t_stack *stack_b)
 	stack_a->hold_second = NULL;
 	count_s = 1;
 	tmp = stack_a->first;
-	chunk = ft_long_short(stack_a, stack_b);
+	chunk = ft_chunk(stack_a, stack_b);
 	while (tmp->next)
 	{
 		tmp = tmp->next;
@@ -94,14 +83,25 @@ int	ft_hold_second(t_stack *stack_a, t_stack *stack_b)
 	printf("\nMovimientos requeridos hacia atras para que sea primero: %d", count_s);
 	return (count_s);
 }
-
+*/
 //Comparamos los dos contadores, el de hold_first y el de hold_second.
 //El menor sera el que movamos.
-void	ft_compare_holds(t_stack *stack_a, t_stack *stack_b)
+void	ft_long_long(t_stack *stack_a, t_stack *stack_b)
 {
 	int	min_b;
 	int	max_b;
 
+	while (!ft_sorted(stack_a) && stack_b->first != NULL)
+	{
+		while (stack_a->first != NULL)
+			{
+				if (stack_b->lenght == 0)
+				{
+					ft_firstmovs(stack_a, stack_b);
+					ft_print_stacks(stack_a, stack_b);
+				}
+
+/*
 //Primer problema, el stack b esta vacio, asi que metemos los dos primeros numeros
 	while (stack_a->first != NULL)
 	{
@@ -129,7 +129,7 @@ void	ft_compare_holds(t_stack *stack_a, t_stack *stack_b)
 				ft_print_stacks(stack_a, stack_b);
 			}
 //Si el valor de hold first es mayor que todos los elementos del stack b,
-// pondremos el primer elemento de A sobre B. Despues haremos un RB
+// pondremos el primer elemento de A sobre B. Despues haremos un RB 
 // (para que este el ultimo)
 			if (stack_a->hold_first->value > max_b)
 			{
@@ -180,10 +180,12 @@ void	ft_compare_holds(t_stack *stack_a, t_stack *stack_b)
 			}
 		}
 	}
+	chunk = chunk + chunk;
 	ft_make_pb(stack_a, stack_b);
 	printf("\nSALIMOS DEL WHILE!!!!!\n");
 	ft_refill(stack_a, stack_b);
 }
+
 
 void	ft_refill(t_stack *stack_a, t_stack *stack_b)
 {
@@ -232,5 +234,4 @@ void	ft_refill(t_stack *stack_a, t_stack *stack_b)
 			ft_print_stacks(stack_a, stack_b);
 		}
 	}
-}
-*/
+}*/
