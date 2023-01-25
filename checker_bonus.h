@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:37:00 by frmurcia          #+#    #+#             */
-/*   Updated: 2023/01/25 16:34:51 by frmurcia         ###   ########.fr       */
+/*   Updated: 2023/01/25 18:50:01 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,12 @@ typedef struct s_stack
 	int			lenght;
 	t_element	*first;
 }	t_stack;
+
+typedef struct s_line
+{
+	char	*line;
+	char	*storage;
+}	t_line;
 
 /* checks error */
 int			ft_error(int argc);
@@ -72,8 +78,10 @@ void		ft_make_rrb(t_stack *stack_b);
 void		ft_make_rrr(t_stack *stack_a, t_stack *stack_b);
 
 //Bonus
-int			ft_strlen(char *str);
+size_t		ft_strlcpy(char *dst, char *src, size_t dstsize);
+int			ft_strlen(char *str, int is_line);
 char		*ft_substr(char *s, unsigned int start, size_t len);
+int			ft_have_line(char *s);
 char		*ft_strjoin(char *s1, char *s2);
 char		*ft_strchr(char *s, int c);
 char		*ft_xtraspace(char *fed);

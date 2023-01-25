@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 18:39:32 by frmurcia          #+#    #+#             */
-/*   Updated: 2023/01/25 16:09:04 by frmurcia         ###   ########.fr       */
+/*   Updated: 2023/01/25 19:39:27 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int	ft_error_dup(t_stack *stack_a)
 
 /* Cuarto check. FT_MAX_MIN comprueba que en los datos introducidos
  * no se supera el valor maximo o minimo de un int */
-int	ft_max_min(char **argv)
+int	ft_max_min(char **argv, t_stack *stack_a)
 {
 	int	count;
 
@@ -104,5 +104,9 @@ int	ft_max_min(char **argv)
 		else
 			count++;
 	}
+	if (ft_error_nb(argv) == -1)
+		return (-1);
+	if (ft_error_dup(stack_a) == -1)
+		return (-1);
 	return (0);
 }

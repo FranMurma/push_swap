@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 17:50:17 by frmurcia          #+#    #+#             */
-/*   Updated: 2023/01/25 16:38:00 by frmurcia         ###   ########.fr       */
+/*   Updated: 2023/01/25 19:00:54 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	ft_long_long(t_stack *stack_a, t_stack *stack_b)
 		}
 	}
 	ft_refill(stack_a, stack_b);
-//	ft_free_stack(stack_a);
 }
 
 t_stack	ft_refill_first_if(t_stack *stack_a, t_stack *stack_b)

@@ -5,117 +5,116 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 15:34:30 by frmurcia          #+#    #+#             */
-/*   Updated: 2023/01/24 18:48:25 by frmurcia         ###   ########.fr       */
+/*   Created: 2023/01/25 17:54:16 by frmurcia          #+#    #+#             */
+/*   Updated: 2023/01/25 18:05:31 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
 
-char	*ft_substr(char *s, unsigned int start, size_t len)
+static t_line	get_line(char *line)
 {
-	char	*str_new;
-	size_t	len_s;
-	size_t	cont;
+	int			len;
+	char		*leftover;
+	t_line		result;
 
-	len_s = 0;
-	while (s[len_s])
-		len_s++;
-	if (len_s < start)
-		len = 0;
-	else if (len >= (len_s - start))
-		len = len_s - start;
-	str_new = malloc(sizeof(char) * (len + 1));
-	if (!str_new)
-		return (NULL);
-	cont = 0;
-	while (cont < len)
+	len = ft_strlen(line, 1);
+	result.line = ft_substr(line, 0, len);
+	leftover = ft_substr(line, len, ft_strlen(line, 0));
+	if (!result.line || !leftover)
 	{
-		str_new[cont] = s[start];
-		cont++;
-		start++;
+		result.line = NULL;
+		return (result);
 	}
-	str_new[cont] = '\0';
-	return (str_new);
+	free(line);
+	result.storage = leftover;
+	return (result);
 }
 
-char	*ft_xtraspace(char *fed)
+static t_line	new_line(char *line, char *storage)
 {
-	int		i;
-	int		j;
-	char	*rest;
+	t_line	new_line;
 
-	i = 0;
-	j = 0;
-	while (fed[i] && fed[i] != '\n')
-		i++;
-	if (!fed[i])
-	{
-		free(fed);
-		return (NULL);
-	}
-	if (fed[i] == '\n')
-		i++;
-	rest = malloc(sizeof(char) * (ft_strlen(fed) - i + 1));
-	if (!rest)
-		return (NULL);
-	while (fed[i])
-		rest[j++] = fed [i++];
-	rest[j] = '\0';
-	free(fed);
-	return (rest);
+	new_line.line = line;
+	new_line.storage = storage;
+	return (new_line);
 }
 
-char	*ft_read(int fd, char *fed)
+static t_line	read_file(int fd, char *line)
 {
-	int		bytes;
-	char	*temp;
+	int		nb;
+	char	buffer[BUFFER_SIZE + 1];
+	char	*aux;
 
-	bytes = 1;
-	temp = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (!temp)
-		return (NULL);
-	while (!ft_strchr(fed, '\n') && bytes != 0)
+	while (1)
 	{
-		bytes = read(fd, temp, BUFFER_SIZE);
-		if (bytes < 0)
+		nb = read(fd, buffer, BUFFER_SIZE);
+		if (nb == 0)
 		{
-			free(temp);
-			free(fed);
-			return (NULL);
+			if (ft_strlen(line, 0) == 0)
+				return (new_line(NULL, NULL));
+			return (new_line(line, NULL));
 		}
-		temp[bytes] = '\0';
-		fed = ft_strjoin(fed, temp);
+		buffer[nb] = '\0';
+		aux = ft_strjoin(line, buffer);
+		if (!aux)
+			return (new_line(NULL, NULL));
+		free(line);
+		line = aux;
+		if (ft_have_line(line))
+			return (get_line(line));
 	}
-	free(temp);
-	return (fed);
+}
+
+static t_line	get_line_file(int fd, char *line)
+{
+	t_line	new_line;
+
+	if (!line)
+	{
+		line = malloc(sizeof(char));
+		line[0] = '\0';
+	}
+	new_line = read_file(fd, line);
+	if (new_line.line)
+		return (new_line);
+	if (ft_strlen(line, 0) == 0)
+	{
+		new_line.line = NULL;
+		free(line);
+	}
+	else
+	{
+		new_line.line = line;
+		new_line.storage = NULL;
+	}
+	return (new_line);
 }
 
 char	*get_next_line(int fd)
 {
-	int			cont;
-	char		*line;
-	static char	*fed;
+	static char	*storage = NULL;
+	t_line		line;
 
-	cont = 0;
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0)
 		return (NULL);
-	if (!fed)
-		fed = ft_strdup("");
-	fed = ft_read(fd, fed);
-	if (!fed)
+	if (storage && ft_have_line(storage))
 	{
-		free(fed);
-		return (NULL);
+		line = get_line(storage);
+		storage = line.storage;
+		return (line.line);
 	}
-	while (fed[cont] != '\n' && fed[cont])
-		cont++;
-	line = ft_substr(fed, 0, cont + 1);
-	fed = ft_xtraspace(fed);
-	if (!line || !line[0])
+	line = get_line_file(fd, storage);
+	if (line.line)
 	{
-		free(line);
-		return (NULL);
+		storage = line.storage;
+		return (line.line);
 	}
-	return (line);
+	if (storage)
+	{
+		line.line = storage;
+		storage = NULL;
+		return (line.line);
+	}
+	return (NULL);
 }
