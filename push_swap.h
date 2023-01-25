@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 10:45:08 by frmurcia          #+#    #+#             */
-/*   Updated: 2023/01/25 19:40:20 by frmurcia         ###   ########.fr       */
+/*   Updated: 2023/01/25 20:09:04 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ t_stack		ft_create_stack_b(void);
 void		ft_free_stacks(t_stack *stack_a, t_stack *stack_b);
 
 /* put index to the stack_a elements*/
-t_stack		ft_index(t_stack *stack_a, t_stack *stack_b);
+t_stack		ft_index(t_stack *stack_a);
 
 /* Find max and mins in the stacks */
 int			ft_max_a(t_stack *stack_a);

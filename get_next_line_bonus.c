@@ -6,12 +6,33 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 17:54:16 by frmurcia          #+#    #+#             */
-/*   Updated: 2023/01/25 18:05:31 by frmurcia         ###   ########.fr       */
+/*   Updated: 2023/01/25 20:08:22 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
 
+char	*get_next_line(int fd)
+{
+	char	*string;
+	char	*copy;
+
+	string = malloc(10000);
+	copy = string;
+	while (read(fd, copy, 1) > 0 && *copy++ != '\n')
+	{
+	}
+	if (copy > string)
+	{
+		*copy = 0;
+		return (string);
+	}
+	else
+		free(string);
+	return (NULL);
+}
+
+/*
 static t_line	get_line(char *line)
 {
 	int			len;
@@ -117,4 +138,4 @@ char	*get_next_line(int fd)
 		return (line.line);
 	}
 	return (NULL);
-}
+}*/
