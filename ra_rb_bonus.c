@@ -1,21 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse.c                                          :+:      :+:    :+:   */
+/*   ra_rb_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/09 19:03:55 by frmurcia          #+#    #+#             */
-/*   Updated: 2023/01/20 16:23:26 by frmurcia         ###   ########.fr       */
+/*   Created: 2023/01/24 15:48:33 by frmurcia          #+#    #+#             */
+/*   Updated: 2023/01/24 17:51:54 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
-/* * @brief 
- * reverse rotate a - desplaza hacia abajo todos los elementos del stack a una
-posición, de forma que el último elemento se convierte en el primero.
- * @param stack_a   */
 void	ft_rra(t_stack *stack_a)
 {
 	t_element	*tmp;
@@ -73,13 +69,11 @@ void	ft_rrb(t_stack *stack_b)
 
 void	ft_make_rra(t_stack *stack_a)
 {
-	write (1, "rra\n", 4);
 	ft_rra(stack_a);
 }
 
 void	ft_make_rrb(t_stack *stack_b)
 {
-	write (1, "rrb\n", 4);
 	ft_rrb(stack_b);
 }
 
@@ -87,5 +81,4 @@ void	ft_make_rrr(t_stack *stack_a, t_stack *stack_b)
 {
 	ft_rra(stack_a);
 	ft_rrb(stack_b);
-	write (1, "rrr\n", 4);
 }

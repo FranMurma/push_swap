@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   aux.c                                              :+:      :+:    :+:   */
+/*   aux_bonus.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/20 11:54:53 by frmurcia          #+#    #+#             */
-/*   Updated: 2023/01/19 16:34:47 by frmurcia         ###   ########.fr       */
+/*   Created: 2023/01/24 17:24:40 by frmurcia          #+#    #+#             */
+/*   Updated: 2023/01/24 17:51:14 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
 /* FT_L_ATOI, adaptacion de ft_atoi, con un long, comprueba
  * que los datos introducidos no son mayores que el int maximo o minimo */

@@ -6,11 +6,11 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 15:30:33 by frmurcia          #+#    #+#             */
-/*   Updated: 2023/01/10 18:38:21 by frmurcia         ###   ########.fr       */
+/*   Updated: 2023/01/20 16:04:15 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
 // ft_max_ y ft_min buscan el maximo y el minimo respectivamente,
 // cada uno en sus cadenas, y nos devuelve la posicion en la que estan.

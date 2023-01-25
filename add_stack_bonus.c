@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_stack.c                                        :+:      :+:    :+:   */
+/*   add_stack_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 16:30:53 by frmurcia          #+#    #+#             */
-/*   Updated: 2023/01/25 17:14:05 by frmurcia         ###   ########.fr       */
+/*   Created: 2023/01/24 15:50:21 by frmurcia          #+#    #+#             */
+/*   Updated: 2023/01/25 17:15:09 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
 t_stack	ft_create_stack_b(void)
 {

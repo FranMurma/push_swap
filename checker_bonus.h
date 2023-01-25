@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   checker_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/20 10:45:08 by frmurcia          #+#    #+#             */
-/*   Updated: 2023/01/25 16:36:46 by frmurcia         ###   ########.fr       */
+/*   Created: 2023/01/23 18:37:00 by frmurcia          #+#    #+#             */
+/*   Updated: 2023/01/25 16:34:51 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef CHECKER_BONUS_H
+# define CHECKER_BONUS_H
 
 # define BUFFER_SIZE 1
 
@@ -20,11 +20,6 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdio.h>
-# define RESET_COLOR "\x1b[0m"
-# define VERDE_T "\x1b[32m"
-# define VERDE_F "\x1b[42m"
-# define AMARILLO_T "\x1b[33m"
-# define AMARILLO_F "\x1b[43m"
 
 // definition of the estructures
 typedef struct s_element
@@ -45,7 +40,7 @@ typedef struct s_stack
 int			ft_error(int argc);
 int			ft_error_nb(char **argv);
 int			ft_max_min(char **argv);
-int			ft_sorted(t_stack *stack_a);
+int			ft_check_sorted(t_stack *stack_a);
 int			ft_error_dup(t_stack *stack_a);
 
 /* aux */
@@ -53,19 +48,13 @@ int			ft_start(char *str);
 long int	ft_l_atoi(char *str);
 int			ft_atoi(char *str);
 
-	/* create stacks */
+/* create stacks */
 t_stack		ft_create_stack_a(int argc, char **argv);
 t_stack		ft_create_stack_b(void);
 void		ft_free_stacks(t_stack *stack_a, t_stack *stack_b);
 
 /* put index to the stack_a elements*/
 t_stack		ft_index(t_stack *stack_a);
-
-/* Find max and mins in the stacks */
-int			ft_max_a(t_stack *stack_a);
-int			ft_min_a(t_stack *stack_a);
-int			ft_nb_max(t_stack *stack_b);
-int			ft_nb_min(t_stack *stack_b);
 
 // Movements
 void		ft_make_sa(t_stack *stack_a);
@@ -82,28 +71,17 @@ void		ft_make_rra(t_stack *stack_a);
 void		ft_make_rrb(t_stack *stack_b);
 void		ft_make_rrr(t_stack *stack_a, t_stack *stack_b);
 
-//Actions
-void		ft_two_num(t_stack *stack_a);
-void		ft_three_num(t_stack *stack_a, t_stack *stack_b);
-void		ft_four_num(t_stack *stack_a, t_stack *stack_b);
-void		ft_five_num(t_stack *stack_a, t_stack *stack_b);
-void		ft_long_short(t_stack *stack_a, t_stack *stack_b);
-int			ft_chunk(t_stack *stack_a, t_stack *stack_b);
-int			ft_chunk_max(t_stack *stack_a, t_stack *stack_b);
-int			ft_chunk_min(t_stack *stack_a, t_stack *stack_b);
-void		ft_long_long(t_stack *stack_a, t_stack *stack_b);
-void		ft_move_b(t_stack *stack_b);
-void		ft_refill(t_stack *stack_a, t_stack *stack_b);
-
-//Bonous
-size_t		ft_strlen(char *str);
+//Bonus
+int			ft_strlen(char *str);
 char		*ft_substr(char *s, unsigned int start, size_t len);
 char		*ft_strjoin(char *s1, char *s2);
 char		*ft_strchr(char *s, int c);
 char		*ft_xtraspace(char *fed);
 char		*ft_read(int fd, char *fed);
+void		ft_read_movs(t_stack *stack_a, t_stack *stack_b);
 char		*get_next_line(int fd);
 char		*ft_strdup(char *s1);
-int			ft_strncmp(const char *s1, const char *s2, size_t n);
+int			ft_strcmp(char *s1, char *s2);
+int			ft_check_line(char *line, t_stack *stack_a, t_stack *stack_b);
 
 #endif

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_a_b.c                                         :+:      :+:    :+:   */
+/*   sa_sb_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 19:48:04 by frmurcia          #+#    #+#             */
-/*   Updated: 2023/01/20 16:41:21 by frmurcia         ###   ########.fr       */
+/*   Created: 2023/01/24 18:16:07 by frmurcia          #+#    #+#             */
+/*   Updated: 2023/01/24 18:17:07 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
-//swap a - intercambia los dos primeros elementos encima del stack a. 
+//swap a - intercambia los dos primeros elementos encima del stack a.
 //No hace nada si hay uno o menos elementos.
 void	ft_sa(t_stack *stack_a)
 {
@@ -56,13 +56,11 @@ void	ft_sb(t_stack *stack_b)
 
 void	ft_make_sa(t_stack *stack_a)
 {
-	write (1, "sa\n", 3);
 	ft_sa(stack_a);
 }
 
 void	ft_make_sb(t_stack *stack_b)
 {
-	write (1, "sb\n", 3);
 	ft_sb(stack_b);
 }
 
@@ -70,7 +68,6 @@ void	ft_make_ss(t_stack *stack_a, t_stack *stack_b)
 {
 	if (stack_a->lenght >= 2 && stack_b->lenght >= 2)
 	{
-		write (1, "ss\n", 3);
 		ft_sa(stack_a);
 		ft_sb(stack_b);
 	}

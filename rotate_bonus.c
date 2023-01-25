@@ -1,19 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   rotate_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/09 17:11:27 by frmurcia          #+#    #+#             */
-/*   Updated: 2023/01/20 16:25:35 by frmurcia         ###   ########.fr       */
+/*   Created: 2023/01/24 15:48:52 by frmurcia          #+#    #+#             */
+/*   Updated: 2023/01/24 17:52:06 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
-/*rotate a - desplaza hacia arriba todos los elementos del stack a una posición,
-de forma que el primer elemento se convierte en el último.*/
 void	ft_ra(t_stack *stack_a)
 {
 	t_element	*tmp;
@@ -37,8 +35,6 @@ void	ft_ra(t_stack *stack_a)
 	}
 }
 
-/*rotate b - desplaza hacia arriba todos los elementos del stack b una posición,
-de forma que el primer elemento se convierte en el último.*/
 void	ft_rb(t_stack *stack_b)
 {
 	t_element	*tmp;
@@ -64,19 +60,16 @@ void	ft_rb(t_stack *stack_b)
 
 void	ft_make_ra(t_stack *stack_a)
 {
-	write (1, "ra\n", 3);
 	ft_ra(stack_a);
 }
 
 void	ft_make_rb(t_stack *stack_b)
 {
-	write (1, "rb\n", 3);
 	ft_rb(stack_b);
 }
 
 void	ft_make_rr(t_stack *stack_a, t_stack *stack_b)
 {
-	write (1, "rr\n", 3);
 	ft_ra(stack_a);
 	ft_rb(stack_b);
 }

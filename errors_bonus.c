@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   errors_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/17 18:39:32 by frmurcia          #+#    #+#             */
-/*   Updated: 2023/01/25 16:09:04 by frmurcia         ###   ########.fr       */
+/*   Created: 2023/01/24 15:16:52 by frmurcia          #+#    #+#             */
+/*   Updated: 2023/01/25 16:09:33 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
+#include "checker_bonus.h"
 
 /* CHECK de errores. El primero, FT_ERROR, 
  * comprueba que al menos hay un segundo argc */
@@ -19,7 +18,8 @@ int	ft_error(int argc)
 {
 	if (argc < 2)
 	{
-		exit (1);
+		write (1, "Error\n", 6);
+		return (-1);
 	}
 	return (0);
 }
@@ -47,8 +47,8 @@ int	ft_error_nb(char **argv)
 		while (argv[c1][c2])
 		{
 			if (((argv[c1][0] == '-' || argv[c1][0] == '+')
-				&& (argv[c1][c2 + 1] >= '0' && argv[c1][c2 + 1] <= '9'))
-				|| (argv[c1][c2] >= '0' && argv[c1][c2] <= '9'))
+					&& (argv[c1][c2 + 1] >= '0' && argv[c1][c2 + 1] <= '9'))
+					|| (argv[c1][c2] >= '0' && argv[c1][c2] <= '9'))
 				c2++;
 			else if (c2 != 0 && argv[c1][c2] >= '0' && argv[c1][c2] <= '9')
 				c2++;

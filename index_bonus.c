@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   index.c                                            :+:      :+:    :+:   */
+/*   index_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/04 16:58:52 by frmurcia          #+#    #+#             */
-/*   Updated: 2023/01/25 16:38:33 by frmurcia         ###   ########.fr       */
+/*   Created: 2023/01/24 15:49:53 by frmurcia          #+#    #+#             */
+/*   Updated: 2023/01/25 16:09:19 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
 /* Creamos un index asociado. Para calcluar el index, comparamos cada nodo
  * con el siguiente. Si el siguiente es mayor simplemente el siguiente toma
@@ -40,8 +40,8 @@ t_stack	ft_index(t_stack *stack_a)
 	return (*stack_a);
 }
 
-//Comprueba que no este todo ya ordenado (return (0);)
-int	ft_sorted(t_stack *stack_a)
+// Quinto. Comprueba que no este todo ya ordenado (return (0);)
+int	ft_check_sorted(t_stack *stack_a)
 {
 	t_element	*tmp1;
 	int			count1;
@@ -57,11 +57,7 @@ int	ft_sorted(t_stack *stack_a)
 		tmp1 = tmp1->next;
 	}
 	if (count1 == stack_a->lenght -1)
-	{
-		return (-1);
-	}
-	else
-	{
 		return (0);
-	}
+	else
+		return (-1);
 }
