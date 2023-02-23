@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/02/23 19:34:18 by frmurcia          #+#    #+#              #
-#    Updated: 2023/02/23 20:17:55 by frmurcia         ###   ########.fr        #
+#    Created: 2022/10/28 16:36:37 by frmurcia          #+#    #+#              #
+#    Updated: 2022/11/03 16:05:35 by frmurcia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,50 +14,33 @@
 GREEN			:= \033[32m
 NC				:= \033[m
 
-NAME = so_long
+NAME = libftprintf.a
 
 CC = gcc
-
-SRC = so_long.c aux.c check.c check_path.c exit.c get_next_line.c map.c movement.c moremov.c position.c split.c upload_img.c
+SRC = ft_printf.c ft_print_sc.c ft_print_hex.c ft_print_ptr.c ft_print_decs.c ft_u_itoa.c aux.c
 
 FLAGS = -Wall -Werror -Wextra
-
 OBJ = $(SRC:.c=.o)
-
-HEADER = so_long.h
-
-FT_PRINTFDIR = ft_printf/
-
-FT_PRINTF = $(FT_PRINTFDIR)libftprintf.a
+HEADER = ft_printf.h
 
 RM = rm -f
 
+%.o : %.c $(HEADER)
+	$(CC) $(FLAGS) -c $< -o $@
 
-%.o : %.c
-	$(CC) -c $(FLAGS) -Imlx/ -Ift_printf/ $< -o $@
-
-all :
-	$(MAKE) ft_printf
-	$(MAKE) -C mlx/
-	$(MAKE) $(NAME)
 
 $(NAME) : $(OBJ) $(HEADER)
-	$(CC) $(FLAGS) -Lmlx -lmlx -framework OpenGL -framework AppKit -Lft_printf -lftprintf $(OBJ) -o $(NAME)
+	ar rcs $(NAME) $(OBJ)
 
-ft_printf :
-	make -C $(FT_PRINTFDIR)
+all : $(NAME)
 
 clean :
-	@make clean -s -C $(FT_PRINTFDIR)
 	$(RM) $(OBJ)
-
+	
 fclean : clean
 	$(RM) $(NAME)
-	make clean -C mlx
-	make clean -C $(FT_PRINTFDIR)
 	@echo "$(GREEN)$(NAME) cleaned!$(NC)"
 
 re : fclean all
-norm :
-	@norminette
-.PHONY = all clean fclean re norm
+
+.PHONY = all clean fclean re

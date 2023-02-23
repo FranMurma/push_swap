@@ -3,83 +3,115 @@
 /*                                                        :::      ::::::::   */
 /*   aux.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frmurcia <frmurcia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/20 11:54:53 by frmurcia          #+#    #+#             */
-/*   Updated: 2023/01/19 16:34:47 by frmurcia         ###   ########.fr       */
+/*   Created: 2023/02/03 14:50:25 by frmurcia          #+#    #+#             */
+/*   Updated: 2023/02/22 18:24:23 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "so_long.h"
+#include "mlx/mlx.h"
+#include "ft_printf/ft_printf.h"
 
-/* FT_L_ATOI, adaptacion de ft_atoi, con un long, comprueba
- * que los datos introducidos no son mayores que el int maximo o minimo */
-int	ft_start(char *str)
+size_t	ft_strlen(const char *s)
 {
-	int	c1;
+	size_t	i;
 
-	c1 = 0;
-	while (str[c1] == ' ' || str[c1] == '\n'
-		|| str[c1] == '\t' || str[c1] == '\r'
-		|| str[c1] == '\v' || str[c1] == '\f')
-	{
-		c1++;
-	}
-	return (c1);
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }
 
-long int	ft_l_atoi(char *str)
+int	ft_file_term(char *file_name, char *file_end)
 {
-	int			count;
-	long int	store;
-	int			neg;
+	int	count1;
+	int	count2;
 
-	count = 0;
-	store = 0;
-	neg = 1;
-	if (str[count] != '\0')
+	count1 = 0;
+	count2 = 0;
+	while (file_name[count1])
+		count1++;
+	count1 = count1 -4;
+	while (file_end[count2])
 	{
-		count = ft_start(str);
-		if (str[count] == '+' || str[count] == '-')
+		if (file_name[count1] == file_end[count2] && file_name[count1] != '\0')
 		{
-			if (str[count] == '-')
-				neg = neg * -1;
-			count++;
+			count1++;
 		}
-		while (str[count] >= '0' && str[count] <= '9')
-		{
-			store = (store * 10) + (str[count] - '0');
-			count++;
-		}
-		store = store * neg;
+		count2++;
 	}
-	return (store);
+	if (file_name[count1] == '\0')
+		return (1);
+	else if (file_name[count1] != '\0')
+		return (-1);
+	return (0);
 }
 
-int	ft_atoi(char *str)
+char	*ft_strjoin(char *s1, char *s2)
 {
-	int	cont1;
-	int	almacen;
-	int	neg;
+	char	*s3;
+	int		cont;
+	int		conts3;
 
-	cont1 = 0;
-	almacen = 0;
-	neg = 1;
-	if (str[cont1] != '\0')
+	cont = -1;
+	conts3 = 0;
+	if (!s1)
 	{
-		cont1 = ft_start(str);
-		if (str[cont1] == '+' || str[cont1] == '-')
-		{
-			if (str[cont1] == '-')
-				neg = neg * -1;
-			cont1++;
-		}
-		while (str[cont1] >= '0' && str[cont1] <= '9')
-		{
-			almacen = (almacen * 10) + (str[cont1] - '0');
-			cont1++;
-		}
-		almacen = almacen * neg;
+		s1 = (char *)malloc(sizeof(char) * 1);
+		s1[0] = '\0';
 	}
-	return (almacen);
+	if (!s1 || !s2)
+		return (0);
+	s3 = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!s3)
+		return (0);
+	while (s1[++cont])
+		s3[cont] = s1[cont];
+	while (s2[conts3])
+		s3[cont++] = s2[conts3++];
+	s3[cont] = '\0';
+	free(s1);
+	return (s3);
+}
+
+char	*ft_strchr(char *s, int c)
+{
+	int	cont;
+
+	cont = 0;
+	if (!s)
+		return (0);
+	if (c == '\0')
+		return ((char *)(s + cont));
+	while (s[cont] != '\0')
+	{
+		if (s[cont] == (char)c)
+			return ((char *)(s + cont));
+		cont++;
+	}
+	return (0);
+}
+
+char	*ft_strdup(char *s1)
+{
+	int		cont;
+	char	*s2;
+	int		len;
+
+	cont = 0;
+	if (!s1)
+		return (0);
+	len = ft_strlen(s1);
+	s2 = (char *)malloc(sizeof(char) * (len + 1));
+	if (!s2)
+		return (NULL);
+	while (s1[cont] != '\0')
+	{
+		s2[cont] = *((char *)(s1 + cont));
+		cont++;
+	}
+	s2[cont] = '\0';
+	return (s2);
 }
