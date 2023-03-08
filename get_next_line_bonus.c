@@ -5,137 +5,92 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/25 17:54:16 by frmurcia          #+#    #+#             */
-/*   Updated: 2023/01/25 20:08:22 by frmurcia         ###   ########.fr       */
+/*   Created: 2023/02/16 16:47:45 by frmurcia          #+#    #+#             */
+/*   Updated: 2023/02/25 12:09:47 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker_bonus.h"
+#include "so_long_bonus.h"
+#include "mlx/mlx.h"
+#include "ft_printf/ft_printf.h"
 
-char	*get_next_line(int fd)
+char	*ft_cutword(char *prt)
 {
-	char	*string;
-	char	*copy;
+	int		i;
+	int		j;
+	char	*dest;
 
-	string = malloc(10000);
-	copy = string;
-	while (read(fd, copy, 1) > 0 && *copy++ != '\n')
+	i = 0;
+	j = 0;
+	while (prt[i] != '\n' && prt[i])
+		i++;
+	if (!prt[i])
 	{
-	}
-	if (copy > string)
-	{
-		*copy = 0;
-		return (string);
-	}
-	else
-		free(string);
-	return (NULL);
-}
-
-/*
-static t_line	get_line(char *line)
-{
-	int			len;
-	char		*leftover;
-	t_line		result;
-
-	len = ft_strlen(line, 1);
-	result.line = ft_substr(line, 0, len);
-	leftover = ft_substr(line, len, ft_strlen(line, 0));
-	if (!result.line || !leftover)
-	{
-		result.line = NULL;
-		return (result);
-	}
-	free(line);
-	result.storage = leftover;
-	return (result);
-}
-
-static t_line	new_line(char *line, char *storage)
-{
-	t_line	new_line;
-
-	new_line.line = line;
-	new_line.storage = storage;
-	return (new_line);
-}
-
-static t_line	read_file(int fd, char *line)
-{
-	int		nb;
-	char	buffer[BUFFER_SIZE + 1];
-	char	*aux;
-
-	while (1)
-	{
-		nb = read(fd, buffer, BUFFER_SIZE);
-		if (nb == 0)
-		{
-			if (ft_strlen(line, 0) == 0)
-				return (new_line(NULL, NULL));
-			return (new_line(line, NULL));
-		}
-		buffer[nb] = '\0';
-		aux = ft_strjoin(line, buffer);
-		if (!aux)
-			return (new_line(NULL, NULL));
-		free(line);
-		line = aux;
-		if (ft_have_line(line))
-			return (get_line(line));
-	}
-}
-
-static t_line	get_line_file(int fd, char *line)
-{
-	t_line	new_line;
-
-	if (!line)
-	{
-		line = malloc(sizeof(char));
-		line[0] = '\0';
-	}
-	new_line = read_file(fd, line);
-	if (new_line.line)
-		return (new_line);
-	if (ft_strlen(line, 0) == 0)
-	{
-		new_line.line = NULL;
-		free(line);
-	}
-	else
-	{
-		new_line.line = line;
-		new_line.storage = NULL;
-	}
-	return (new_line);
-}
-
-char	*get_next_line(int fd)
-{
-	static char	*storage = NULL;
-	t_line		line;
-
-	if (fd < 0)
+		free(prt);
 		return (NULL);
-	if (storage && ft_have_line(storage))
-	{
-		line = get_line(storage);
-		storage = line.storage;
-		return (line.line);
 	}
-	line = get_line_file(fd, storage);
-	if (line.line)
+	if (prt[i] == '\n')
+		i++;
+	dest = malloc(sizeof(char) * (ft_strlen(prt) - i + 1));
+	if (!dest)
+		return (NULL);
+	while (prt[i])
+		dest[j++] = prt[i++];
+	dest[j] = '\0';
+	free(prt);
+	return (dest);
+}
+
+char	*ft_read(int fd, char *ptr)
+{
+	int		bytes;
+	char	*temp;
+
+	bytes = 1;
+	temp = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!temp)
+		return (NULL);
+	while (!ft_strchr(ptr, '\n') && bytes != 0)
 	{
-		storage = line.storage;
-		return (line.line);
+		bytes = read(fd, temp, BUFFER_SIZE);
+		if (bytes < 0)
+		{
+			free(temp);
+			free(ptr);
+			return (NULL);
+		}
+		temp[bytes] = '\0';
+		ptr = ft_strjoin(ptr, temp);
 	}
-	if (storage)
+	free(temp);
+	return (ptr);
+}
+
+char	*get_next_line(int fd)
+{
+	static char	*ptr;
+	char		*line;
+	int			cont;
+
+	cont = 0;
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+	if (!ptr)
+		ptr = ft_strdup("");
+	ptr = ft_read(fd, ptr);
+	if (!ptr)
 	{
-		line.line = storage;
-		storage = NULL;
-		return (line.line);
+		free(ptr);
+		return (NULL);
 	}
-	return (NULL);
-}*/
+	while (ptr[cont] != '\n' && ptr[cont])
+		cont++;
+	line = ft_substr(ptr, 0, cont + 1);
+	ptr = ft_cutword(ptr);
+	if (!line || !line[0])
+	{
+		free(line);
+		return (NULL);
+	}
+	return (line);
+}

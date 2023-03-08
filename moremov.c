@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 16:47:09 by frmurcia          #+#    #+#             */
-/*   Updated: 2023/02/23 15:45:08 by frmurcia         ###   ########.fr       */
+/*   Updated: 2023/02/25 19:35:04 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_win(t_game *game)
 
 	c = 0;
 	game->count = game->count +1;
-	printf("Movements number: %d\n", game->count);
+	ft_printf("Movements number: %d\n", game->count);
 	mlx_string_put(game->mlx_ptr, game->win_ptr, 15,
 		15, 66000000, "CONGRATULATIONS\n");
 	mlx_do_sync(game->mlx_ptr);
